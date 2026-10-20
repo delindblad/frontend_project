@@ -1,3 +1,13 @@
+
+# Instructions
+The following tech is used:
+Vite: https://vite.dev/
+React: https://react.dev/
+React Router: https://reactrouter.com/home
+React Bootstrap: https://react-bootstrap.netlify.app/
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
