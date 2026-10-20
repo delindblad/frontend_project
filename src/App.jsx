@@ -15,7 +15,7 @@ function Contact() {
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/frontend_project">
             {/* Navigation */}
            {/* <nav>
                 <Link to="/">Home</Link> |{" "}
