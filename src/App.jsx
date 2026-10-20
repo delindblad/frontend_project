@@ -15,7 +15,7 @@ function Contact() {
 
 function App() {
     return (
-        <BrowserRouter basename="/frontend_project">
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             {/* Navigation */}
            {/* <nav>
                 <Link to="/">Home</Link> |{" "}
