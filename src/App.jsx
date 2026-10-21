@@ -11,7 +11,7 @@ import Schedule from "./Schedule.jsx";
 
 function App() {
     return (
-        <BrowserRouter basename="/">
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             {/* Navigation */}
             {/*<nav>
                 <Link to="/">Home</Link> |{" "}
