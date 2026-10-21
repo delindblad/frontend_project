@@ -15,12 +15,12 @@ function Contact() {
 
 function App() {
     return (
-        <BrowserRouter basename="/frontend_project">
+        <BrowserRouter basename="/">
             {/* Navigation */}
-           {/* <nav>
+            {/*<nav>
                 <Link to="/">Home</Link> |{" "}
-                <Link to="/about">About </Link> |{" "}
-                <Link to="/contact">Contact</Link>
+                <Link to="/courses">Courses </Link> |{" "}
+                <Link to="/mylearning">My Learning</Link>
             </nav>*/}
 
             {/* Routes */}
