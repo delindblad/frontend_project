@@ -1,0 +1,228 @@
+/* ========================================
+   Header and navigation
+   ======================================== */
+
+/* Pale-blue header with a soft gradient and subtle shadow. */
+.home-navbar {
+    background: linear-gradient(135deg, #f5f9ff, #e5effb);
+    border-bottom: 1px solid #cedef0;
+    box-shadow: 0 2px 10px rgba(38, 76, 120, 0.06);
+}
+
+/* Dark-blue platform name. */
+.home-navbar .home-navbar-brand {
+    color: #294d73;
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.home-navbar .home-navbar-brand:hover {
+    color: #193654;
+}
+
+/* Rounded navigation links with comfortable spacing. */
+.home-navbar .navbar-nav .nav-link {
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.5rem;
+    color: #365777;
+    font-weight: 500;
+}
+
+/* Highlight hovered links and open dropdowns. */
+.home-navbar .navbar-nav .nav-link:hover,
+.home-navbar .navbar-nav .nav-link.show {
+    background-color: #dce9f8;
+    color: #193654;
+}
+
+/* Clearly identify the current page. */
+.home-navbar .navbar-nav .nav-link.active {
+    background-color: #cddff3;
+    color: #193654;
+    font-weight: 600;
+}
+
+/* Match the mobile menu button to the header. */
+.home-navbar .navbar-toggler {
+    border: 1px solid #a6bfdc;
+    border-radius: 0.5rem;
+    color: #294d73;
+}
+
+/* Keep keyboard navigation clearly visible. */
+.home-navbar a:focus-visible,
+.home-navbar button:focus-visible {
+    outline: 3px solid #426f9e;
+    outline-offset: 3px;
+    box-shadow: none;
+}
+
+/* Light dropdown menu with rounded corners. */
+.home-navbar .dropdown-menu {
+    background-color: #f8fbff;
+    border: 1px solid #cedef0;
+    border-radius: 0.65rem;
+    box-shadow: 0 6px 18px rgba(38, 76, 120, 0.1);
+}
+
+.home-navbar .dropdown-item {
+    color: #294d73;
+}
+
+.home-navbar .dropdown-item:hover,
+.home-navbar .dropdown-item:focus {
+    background-color: #e5effb;
+    color: #193654;
+}
+
+/* Add spacing above the expanded mobile menu. */
+@media (max-width: 991.98px) {
+    .home-navbar .navbar-collapse {
+        padding-top: 1rem;
+    }
+
+    .home-navbar .navbar-nav {
+        gap: 0.25rem;
+    }
+}
+
+
+/* ========================================
+   Home page image
+   ======================================== */
+
+/* Display the image at 65% of its column width,
+   centre it, and keep rounded corners. */
+.home-image-frame {
+    width: 65%;
+    margin-inline: auto;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: none;
+}
+
+/* Display the full image without cropping or repositioning. */
+.home-learning-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   Explore courses button
+   ======================================== */
+
+/* Soft-blue button with readable dark-blue text. */
+.home-explore-button {
+    --bs-btn-color: #193654;
+    --bs-btn-bg: #e5effb;
+    --bs-btn-border-color: #b8cfe8;
+
+    --bs-btn-hover-color: #193654;
+    --bs-btn-hover-bg: #d5e5f7;
+    --bs-btn-hover-border-color: #9fbddd;
+
+    --bs-btn-active-color: #193654;
+    --bs-btn-active-bg: #cddff3;
+    --bs-btn-active-border-color: #8faed0;
+
+    --bs-btn-focus-shadow-rgb: 66, 111, 158;
+
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.65rem 1.1rem;
+}
+
+
+/* ========================================
+   Learning cards
+   ======================================== */
+
+/* Coloured top borders, pale backgrounds and soft shadows. */
+.home-module-card {
+    --module-color: #245a81;
+    --module-background: #f5f9fc;
+
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid var(--module-color);
+    border-radius: 0.85rem;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        var(--module-background)
+    );
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Give each topic its own colour palette. */
+.home-module-card--html {
+    --module-color: #c2410c;
+    --module-background: #fff1e8;
+}
+
+.home-module-card--css {
+    --module-color: #1d4ed8;
+    --module-background: #edf4ff;
+}
+
+.home-module-card--javascript {
+    --module-color: #856000;
+    --module-background: #fff9db;
+}
+
+/* Match the heading colour to the card. */
+.home-module-card .card-title {
+    color: var(--module-color);
+}
+
+/* Keep descriptions readable. */
+.home-module-card .card-text {
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* Add a gentle lift on devices that support hovering. */
+@media (hover: hover) {
+    .home-module-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+    }
+}
+
+/* Respect visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    .home-module-card {
+        transition: none;
+    }
+
+    .home-module-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   Footer
+   ======================================== */
+
+/* Soft mint-green background. */
+.home-footer {
+    background-color: #e8f5ee;
+    border-top: 1px solid #cce5d6;
+}
+
+/* Elegant dark-green text for the footer message. */
+.home-footer-message {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #285943;
+}
