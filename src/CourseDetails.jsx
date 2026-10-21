@@ -41,6 +41,11 @@ function CourseDetails() {
                 </Card.Header>
                 <Card.Body>
                   <Card.Text className="fs-4 mb-0">
+                <Card.Header className="bg-success-subtle text-success-emphasis fw-semibold">
+                  Learning objective
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text className="mb-0">
                     {course.objective || 'Learning objective not added yet.'}
                   </Card.Text>
                 </Card.Body>
@@ -54,6 +59,11 @@ function CourseDetails() {
                 </Card.Header>
                 <Card.Body>
                   <Card.Text className="fs-4 mb-0">
+                <Card.Header className="bg-warning-subtle text-warning-emphasis fw-semibold">
+                  Prerequisites
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text className="mb-0">
                     {course.prerequisites || 'No prerequisites listed yet.'}
                   </Card.Text>
                 </Card.Body>
@@ -63,6 +73,7 @@ function CourseDetails() {
 
           <section className="mt-4">
             <h2 className="fs-2 mb-3">Course content</h2>
+            <h2 className="mb-3">Course content</h2>
 
             <ListGroup>
               {course.content?.length ? (
@@ -70,6 +81,7 @@ function CourseDetails() {
                   <ListGroup.Item
                     key={`${course.id}-${index}`}
                     className="fs-4 d-flex align-items-center gap-3"
+                    className="d-flex align-items-center gap-3"
                   >
                     <Badge bg="primary" pill>
                       {index + 1}
