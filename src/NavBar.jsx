@@ -7,15 +7,15 @@ function NavBar() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">E-learning platform</Navbar.Brand>
+                <Navbar.Brand href="./">E-learning platform</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="./Courses">Courses</Nav.Link>
-                        <Nav.Link href="#lessons">Lessons</Nav.Link>
-                        <Nav.Link href="#schedulet">Schedule</Nav.Link>
-                        <Nav.Link href="#assessements">Assessements</Nav.Link>
+                        <Nav.Link href="./Lessons">Lessons</Nav.Link>
+                        <Nav.Link href="./Schedule">Schedule</Nav.Link>
+                        <Nav.Link href="./Assessements">Assessements</Nav.Link>
                         <Nav.Link href="./MyLearning">My Learning</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

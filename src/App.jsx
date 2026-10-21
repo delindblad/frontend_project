@@ -2,16 +2,12 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from "./Home.jsx";
 import MyLearning from "./MyLearning.jsx";
 import Courses from "./Courses.jsx";
+import NavBar from "./NavBar.jsx";
+import Schedule from "./Schedule.jsx";
 
 
 
-function About() {
-    return <h1>About Page</h1>;
-}
 
-function Contact() {
-    return <h1>Contact Page</h1>;
-}
 
 function App() {
     return (
@@ -24,10 +20,13 @@ function App() {
             </nav>*/}
 
             {/* Routes */}
+            <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/mylearning" element={<MyLearning />} />
+                <Route path="/mylearning" element={<MyLearning />} />
+                <Route path="/schedule" element={<Schedule />} />
             </Routes>
         </BrowserRouter>
     );

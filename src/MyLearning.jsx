@@ -2,7 +2,7 @@
 import CardExample from "./CardExample.jsx";
 
 function MyLearning() {
-    return (<div> <NavBar /> <CardExample /></div>
+    return (<div><CardExample /></div>
     )
 }
 
