@@ -14,6 +14,18 @@ function NavBar() {
         // Show all links on large screens and a collapsible menu on smaller screens.
         <Navbar expand="lg" className="home-navbar py-3">
             <Container>
+                <Navbar.Brand href="./">E-learning platform</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="./Courses">Courses</Nav.Link>
+                        <Nav.Link href="./Lessons">Lessons</Nav.Link>
+                        <Nav.Link href="./Schedule">Schedule</Nav.Link>
+                        <Nav.Link href="./Assessements">Assessements</Nav.Link>
+                        <Nav.Link href="./MyLearning">My Learning</Nav.Link>
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 {/* Clicking the platform name returns to the Home page. */}
                 <Navbar.Brand
                     as={Link}
