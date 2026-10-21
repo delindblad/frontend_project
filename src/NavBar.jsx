@@ -55,7 +55,7 @@ function NavBar() {
                             My Learning
                         </Nav.Link>
 
-                        {/* Additional dropdown retained for the group to customise. */}
+                        {/* Preserve the dropdown items from master. */}
                         <NavDropdown
                             title="Dropdown"
                             id="basic-nav-dropdown"
@@ -66,16 +66,6 @@ function NavBar() {
 
                             <NavDropdown.Item href="#action/3.2">
                                 Another action
-                            </NavDropdown.Item>
-
-                            <NavDropdown.Item href="#action/3.3">
-                                Something
-                            </NavDropdown.Item>
-
-                            <NavDropdown.Divider />
-
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
