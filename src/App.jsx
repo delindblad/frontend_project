@@ -27,6 +27,7 @@ function App() {
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/mylearning" element={<MyLearning />} />
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
+                <Route path="/mylearning" element={<MyLearning />} />
                 <Route path="/schedule" element={<Schedule />} />
             </Routes>
         </BrowserRouter>
