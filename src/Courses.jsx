@@ -6,19 +6,16 @@ import { Link } from "react-router-dom";
 function Courses() {
 
   return (
-    <>
-      <NavBar />
-
+    
       <Container className="py-4">
         <h1 className="mb-4">Courses</h1>
-
         <Row xs={1} md={2} lg={3} className="g-4">
           {courses.map((course) => (
             <Col key={course.id}>
               <Card
                 as={Link}
                 to={`/courses/${course.id}`}
-                className="h-100 shadow-sm border-top border-4 border-primary bg-primary-subtle"
+                className="h-100 fs-4 shadow-sm border-top border-4 border-primary bg-primary-subtle"
               >
                 <Card.Body>
                   <Badge bg="secondary" className="mb-3">
@@ -34,8 +31,7 @@ function Courses() {
             </Col>
           ))}
         </Row>
-      </Container>
-    </>
+      </Container>    
   );
 }
 
