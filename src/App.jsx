@@ -3,6 +3,7 @@ import Home from "./Home.jsx";
 import MyLearning from "./MyLearning.jsx";
 import Courses from "./Courses.jsx";
 import CourseDetails from './CourseDetails.jsx';
+import CourseDetails from './CourseDetails.jsx';
 import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 
