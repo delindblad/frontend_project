@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from "./Home.jsx";
 import MyLearning from "./MyLearning.jsx";
 import Courses from "./Courses.jsx";
+import CourseDetails from './CourseDetails.jsx';
 import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 
@@ -25,7 +26,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/mylearning" element={<MyLearning />} />
-                <Route path="/mylearning" element={<MyLearning />} />
+                <Route path="/courses/:courseId" element={<CourseDetails />} />
                 <Route path="/schedule" element={<Schedule />} />
             </Routes>
         </BrowserRouter>
