@@ -1,8 +1,12 @@
 
 ## Tech used
+  
   Vite: https://vite.dev/
+  
   React: https://react.dev/
+  
   React Router: https://reactrouter.com/home
+  
   React Bootstrap: https://react-bootstrap.netlify.app/
 
 ## Setting up locally
