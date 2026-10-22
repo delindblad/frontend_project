@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import NavBar from "./NavBar.jsx";
 import { courses } from "./data/courses.js";
-import { Badge, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Badge, Card, Col, Container, Row } from "react-bootstrap";
 
 function CourseDetails() {
   const { courseId } = useParams();
