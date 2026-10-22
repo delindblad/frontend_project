@@ -31,8 +31,8 @@ jobs:
       - name: Build the app
         run: npm run build -- --base=/frontend_project/
 
-       - name: Add SPA fallback
-         run: cp dist/index.html dist/404.html
+      - name: Add SPA fallback
+        run: cp dist/index.html dist/404.html
 
       - name: Upload built site
         uses: actions/upload-pages-artifact@v4
