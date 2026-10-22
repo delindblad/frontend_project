@@ -36,11 +36,11 @@ function CourseDetails() {
           <Row className="g-4 mt-1">
             <Col md={6}>
               <Card className="h-100 border-0 shadow-sm">
-                <Card.Header className="bg-success-subtle text-success-emphasis fw-semibold">
+                <Card.Header className="fs-2 bg-success-subtle text-success-emphasis fw-semibold ">
                   Learning objective
                 </Card.Header>
                 <Card.Body>
-                  <Card.Text className="mb-0">
+                  <Card.Text className="fs-4 mb-0">
                     {course.objective || 'Learning objective not added yet.'}
                   </Card.Text>
                 </Card.Body>
@@ -49,11 +49,11 @@ function CourseDetails() {
 
             <Col md={6}>
               <Card className="h-100 border-0 shadow-sm">
-                <Card.Header className="bg-warning-subtle text-warning-emphasis fw-semibold">
+                <Card.Header className="fs-2 bg-warning-subtle text-warning-emphasis fw-semibold">
                   Prerequisites
                 </Card.Header>
                 <Card.Body>
-                  <Card.Text className="mb-0">
+                  <Card.Text className="fs-4 mb-0">
                     {course.prerequisites || 'No prerequisites listed yet.'}
                   </Card.Text>
                 </Card.Body>
@@ -62,14 +62,14 @@ function CourseDetails() {
           </Row>
 
           <section className="mt-4">
-            <h2 className="mb-3">Course content</h2>
+            <h2 className="fs-2 mb-3">Course content</h2>
 
             <ListGroup>
               {course.content?.length ? (
                 course.content.map((item, index) => (
                   <ListGroup.Item
                     key={`${course.id}-${index}`}
-                    className="d-flex align-items-center gap-3"
+                    className="fs-4 d-flex align-items-center gap-3"
                   >
                     <Badge bg="primary" pill>
                       {index + 1}
