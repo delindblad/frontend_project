@@ -1,5 +1,4 @@
 ﻿
-import Table from 'react-bootstrap/Table';
 import ScheduleComponent from "./ScheduleComponent.jsx";
 import Row from "react-bootstrap/Row";
 import {Container} from "react-bootstrap";

@@ -1,5 +1,4 @@
 ﻿
-import {schedule} from "./data/schedule.js";
 import Table from 'react-bootstrap/Table';
 
 function ScheduleComponent(props) {
