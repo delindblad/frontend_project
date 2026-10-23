@@ -6,6 +6,11 @@ import CourseDetails from './CourseDetails.jsx';
 import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 import LessonDetails from "./LessonDetails.jsx";
+import { schedule } from './data/schedule.js';
+
+
+
+
 
 function App() {
     return (
@@ -20,6 +25,7 @@ function App() {
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
                 <Route path="/courses/:courseId/modules/:moduleId/lessons/:lessonId" element={<LessonDetails />} />
                 <Route path="/schedule" element={<Schedule />} /> 
+                <Route path="/schedule" element={<Schedule schedule={schedule}  />} />
             </Routes>
         </BrowserRouter>
     );
