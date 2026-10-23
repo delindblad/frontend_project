@@ -115,25 +115,24 @@
    Explore courses button
    ======================================== */
 
-/* Soft-blue button with readable dark-blue text. */
-.home-explore-button {
-    --bs-btn-color: #193654;
-    --bs-btn-bg: #e5effb;
-    --bs-btn-border-color: #b8cfe8;
+/* Blue gradient button with white text. */
+.btn.home-explore-button {
+    background: linear-gradient(135deg, #009dff, #0055ff);
+    border: none;
+    color: #ffffff;
+}
 
-    --bs-btn-hover-color: #193654;
-    --bs-btn-hover-bg: #d5e5f7;
-    --bs-btn-hover-border-color: #9fbddd;
+/* Darken the gradient on hover or keyboard focus. */
+.btn.home-explore-button:hover,
+.btn.home-explore-button:focus-visible {
+    background: linear-gradient(135deg, #008ce6, #0048db);
+    color: #ffffff;
+}
 
-    --bs-btn-active-color: #193654;
-    --bs-btn-active-bg: #cddff3;
-    --bs-btn-active-border-color: #8faed0;
-
-    --bs-btn-focus-shadow-rgb: 66, 111, 158;
-
-    font-weight: 600;
-    border-radius: 0.5rem;
-    padding: 0.65rem 1.1rem;
+/* Clearly indicate keyboard focus. */
+.btn.home-explore-button:focus-visible {
+    outline: 3px solid #294d73;
+    outline-offset: 3px;
 }
 
 
@@ -141,57 +140,90 @@
    Learning cards
    ======================================== */
 
-/* Coloured top borders, pale backgrounds and soft shadows. */
+/* Rounded cards with a pastel gradient and a coloured top border. */
 .home-module-card {
-    --module-color: #245a81;
-    --module-background: #f5f9fc;
+    --module-color: #a63b16;
+    --module-background: #ffdfcc;
+    --module-light: #fff7f0;
 
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--module-background);
     border-top: 5px solid var(--module-color);
-    border-radius: 0.85rem;
+    border-radius: 1.1rem;
     background: linear-gradient(
         135deg,
-        #ffffff,
+        var(--module-light),
         var(--module-background)
     );
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    box-shadow: 0 5px 16px rgba(30, 50, 75, 0.08);
+    overflow: hidden;
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
 }
 
-/* Give each topic its own colour palette. */
+/* Warm peach colours for HTML. */
 .home-module-card--html {
-    --module-color: #c2410c;
-    --module-background: #fff1e8;
+    --module-color: #a63b16;
+    --module-background: #ffdfcc;
+    --module-light: #fff7f0;
 }
 
+/* Fresh blue colours for CSS. */
 .home-module-card--css {
-    --module-color: #1d4ed8;
-    --module-background: #edf4ff;
+    --module-color: #214fa3;
+    --module-background: #cfe3ff;
+    --module-light: #f1f7ff;
 }
 
+/* Warm golden colours for JavaScript. */
 .home-module-card--javascript {
-    --module-color: #856000;
-    --module-background: #fff9db;
+    --module-color: #785600;
+    --module-background: #ffecad;
+    --module-light: #fffbee;
 }
 
-/* Match the heading colour to the card. */
+/* Give the content generous spacing and a consistent font. */
+.home-module-card .card-body {
+    padding: 1.8rem;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* Bold topic headings that adapt to the screen size. */
 .home-module-card .card-title {
+    margin-bottom: 0.85rem;
     color: var(--module-color);
+    font-size: clamp(1.35rem, 1.1rem + 0.7vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
 }
 
-/* Keep descriptions readable. */
+/* Add a short decorative line beneath each heading. */
+.home-module-card .card-title::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    margin-top: 0.85rem;
+    border-radius: 999px;
+    background-color: var(--module-color);
+    opacity: 0.55;
+}
+
+/* Comfortable, readable descriptions. */
 .home-module-card .card-text {
-    color: #475569;
+    margin-bottom: 0;
+    color: #394b60;
+    font-size: 1.05rem;
     line-height: 1.7;
 }
 
-/* Add a gentle lift on devices that support hovering. */
+
+/* Gently lift the cards on devices that support hovering. */
 @media (hover: hover) {
     .home-module-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+        transform: translateY(0px);
+        box-shadow: 0 12px 24px rgba(30, 50, 75, 0.14);
     }
 }
 
