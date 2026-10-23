@@ -7,7 +7,8 @@ import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 import { schedule } from './data/schedule.js';
 
-
+// Shared navigation and footer styles.
+import './App.css';
 
 
 
