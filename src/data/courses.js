@@ -35,7 +35,7 @@ export const courses = [
     id: 'csharp-expert',
     title: 'Advanced C#',
     description:
-      'Explore LINQ, asynchronous programming, error handling and unit testing.',
+        'Explore LINQ, asynchronous programming, error handling and unit testing.',
     level: 'Expert',
     estimatedMinutes: 540,
   },
