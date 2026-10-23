@@ -1,12 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { courses } from "./data/courses.js";
-import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+import { Badge, Card, Col, Container, Row, Button } from "react-bootstrap";
 import { useState } from "react";
 
 function CourseDetails() {
-  
   const { courseId } = useParams();
+  const [selectedModuleId, setSelectedModuleId] = useState(null);
   const course = courses.find((item) => item.id === courseId);
+  const selectedModule = course?.modules?.find(
+    (module) => module.id === selectedModuleId,
+  );
+
+  const firstLesson = selectedModule?.lessons?.[0];
 
   return (
     <Container className="py-4">
@@ -54,30 +59,55 @@ function CourseDetails() {
           </Row>
 
           <section className="mt-4">
-            <h2 className="mb-3">Course content</h2>
-            <Card className="border-0 bg-primary-subtle fs-4 ">
-              <Card.Body>
-                {course.modules?.length ? (
-                  <div>
-                    {course.modules.map((module) => (
-                      <section key={module.id} className="mb-4">
-                        <h3 className="h5 fs-4">{module.title}</h3>
+            <h2 className="mb-3">Course modules</h2>
 
-                        <ul className="course-content-list mb-0 fs-5">
-                          {module.lessons.map((lesson) => (
-                            <li key={lesson.id}>{lesson.title}</li>
-                          ))}
-                        </ul>
-                      </section>
+            <div className="d-flex flex-wrap gap-2 mb-3">
+              {course.modules.map((module) => (
+                <Button
+                  key={module.id}
+                  variant={
+                    selectedModuleId === module.id
+                      ? "primary"
+                      : "outline-primary"
+                  }
+                  aria-pressed={selectedModuleId === module.id}
+                  onClick={() => setSelectedModuleId(module.id)}
+                >
+                  {module.title}
+                </Button>
+              ))}
+            </div>
+
+            {selectedModule && (
+              <Card className="border-0 bg-primary-subtle">
+                <Card.Body>
+                  <h3>{selectedModule.title}</h3>
+
+                  <h4 className="mt-3">Learning objectives</h4>
+                  <ul>
+                    {selectedModule.learningObjectives.map((objective) => (
+                      <li key={objective}>{objective}</li>
                     ))}
-                  </div>
-                ) : (
-                  <p className="mb-0 text-body-secondary">
-                    Course content not added yet.
-                  </p>
-                )}
-              </Card.Body>
-            </Card>
+                  </ul>
+
+                  <h4>Lessons</h4>
+                  <ul>
+                    {selectedModule.lessons.map((lesson) => (
+                      <li key={lesson.id}>{lesson.title}</li>
+                    ))}
+                  </ul>
+
+                  {firstLesson && (
+                    <Button
+                      as={Link}
+                      to={`/courses/${course.id}/modules/${selectedModule.id}/lessons/${firstLesson.id}`}
+                    >
+                      Start module
+                    </Button>
+                  )}
+                </Card.Body>
+              </Card>
+            )}
           </section>
         </>
       ) : (
