@@ -15,10 +15,10 @@ function Courses() {
               className="h-100 fs-4 shadow-sm border-top border-4 border-primary bg-primary-subtle"
             >
               <Card.Body>
-                <Badge bg="secondary" className="mb-3">
+                <Badge bg="secondary" className="mb-4">
                   {course.level}
                 </Badge>
-                <Card.Title>{course.title}</Card.Title>
+                <Card.Title className="fs-3 mb-4">{course.title}</Card.Title>
                 <Card.Text className="text-muted">
                   {course.description}
                 </Card.Text>

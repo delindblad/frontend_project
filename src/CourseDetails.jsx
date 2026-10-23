@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { courses } from "./data/courses.js";
 import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+import { useState } from "react";
 
 function CourseDetails() {
+  
   const { courseId } = useParams();
   const course = courses.find((item) => item.id === courseId);
 
@@ -53,15 +55,22 @@ function CourseDetails() {
 
           <section className="mt-4">
             <h2 className="mb-3">Course content</h2>
-
             <Card className="border-0 bg-primary-subtle fs-4 ">
               <Card.Body>
-                {course.content?.length ? (
-                  <ul className="course-content-list mb-0">
-                    {course.content.map((item, index) => (
-                      <li key={`${course.id}-${index}`}>{item}</li>
+                {course.modules?.length ? (
+                  <div>
+                    {course.modules.map((module) => (
+                      <section key={module.id} className="mb-4">
+                        <h3 className="h5 fs-4">{module.title}</h3>
+
+                        <ul className="course-content-list mb-0 fs-5">
+                          {module.lessons.map((lesson) => (
+                            <li key={lesson.id}>{lesson.title}</li>
+                          ))}
+                        </ul>
+                      </section>
                     ))}
-                  </ul>
+                  </div>
                 ) : (
                   <p className="mb-0 text-body-secondary">
                     Course content not added yet.
