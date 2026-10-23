@@ -5,7 +5,8 @@ import Courses from "./Courses.jsx";
 import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 
-
+// Shared navigation and footer styles.
+import './App.css';
 
 
 

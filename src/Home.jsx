@@ -10,7 +10,8 @@ import Button from 'react-bootstrap/Button';
 
 // Import the Home page image and shared styles.
 import homeLearning from './assets/home-learning.png';
-import './App.css';
+// Styles specific to the Home page.
+import './Home.css';
 
 import Footer from './Footer.jsx';
 
