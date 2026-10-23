@@ -1,39 +1,20 @@
 ﻿
 import Table from 'react-bootstrap/Table';
+import ScheduleComponent from "./ScheduleComponent.jsx";
+import Row from "react-bootstrap/Row";
+import {Container} from "react-bootstrap";
 
-function Schedule() {
+function Schedule(props) {
     return (
-        <Table stiped bordered hover variant="dark">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
+        <Container className="py-4">
+            <h1 className="mb-4">Schedule</h1>
+            <Row xs={1}  className="g-4">
+        <div>
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>08:00</td>
-
-            </tr>
-            <tr>
-                <td>10:00</td>
-
-            </tr>
-            <tr>
-                <td>13:00</td>
-
-            </tr>
-            <tr>
-                <td>15:00</td>
-
-            </tr>
-            </tbody>
-        </Table>
+            <ScheduleComponent schedule={props.schedule} />
+        </div>
+            </Row>
+        </Container>
     );
 }
 
