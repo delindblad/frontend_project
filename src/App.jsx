@@ -8,7 +8,8 @@ import Schedule from "./Schedule.jsx";
 import LessonDetails from "./LessonDetails.jsx";
 import { schedule } from './data/schedule.js';
 
-
+// Shared navigation and footer styles.
+import './App.css';
 
 
 
@@ -24,7 +25,7 @@ function App() {
                 <Route path="/mylearning" element={<MyLearning />} />
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
                 <Route path="/courses/:courseId/modules/:moduleId/lessons/:lessonId" element={<LessonDetails />} />
-                <Route path="/schedule" element={<Schedule />} /> 
+                
                 <Route path="/schedule" element={<Schedule schedule={schedule}  />} />
             </Routes>
         </BrowserRouter>
