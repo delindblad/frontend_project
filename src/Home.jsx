@@ -121,7 +121,7 @@ function Home() {
                 </Container>
             </main>
             
-            <Footer />
+
         </>
     );
 }
