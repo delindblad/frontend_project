@@ -20,9 +20,11 @@ function ScheduleComponent(props) {
             <tr>
                 <td>08:00</td>
                 <td>
-                    <a href={`/courses/${slot0800.topicByDay[0].courseId}`}>
-                    {slot0800.topicByDay[0].title}
-                    </a>
+                    <select>
+                    <option value="Ford">Ford</option>
+                    <option value="Volvo" selected>Volvo</option>
+                    <option value="Fiat">Fiat</option>
+                </select>
                 </td>
                 <td>
                     <a href={`/courses/${slot0800.topicByDay[1].courseId}`}>
