@@ -7,6 +7,7 @@ import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
 import { schedule } from './data/schedule.js';
 import Footer from "./Footer.jsx";
+import {currentCourses} from "./data/schedule.js";
 
 
 
@@ -29,7 +30,7 @@ function App() {
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/mylearning" element={<MyLearning />} />
                 <Route path="/courses/:courseId" element={<CourseDetails />} />
-                <Route path="/schedule" element={<Schedule schedule={schedule}  />} />
+                <Route path="/schedule" element={<Schedule currentCourses={currentCourses}  />} />
             </Routes>
             <Footer />
         </BrowserRouter>

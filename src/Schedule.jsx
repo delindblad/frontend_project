@@ -1,19 +1,24 @@
 ﻿
 import ScheduleComponent from "./ScheduleComponent.jsx";
 import Row from "react-bootstrap/Row";
-import {Container} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
+
 
 function Schedule(props) {
+    const currentCourses = props.currentCourses;
     return (
-        <Container className="py-4">
-            <h1 className="mb-4">Schedule</h1>
-            <Row xs={1}  className="g-4">
-        <div>
 
-            <ScheduleComponent schedule={props.schedule} />
-        </div>
-            </Row>
+        <Container fluid="sm" className="py-4"  >
+
+                <Row className="bg-primary-subtle">
+                    <Col className="bg-primary-subtle">
+                        <ScheduleComponent currentCourses={currentCourses}/>
+                    </Col>
+                </Row>
+
+
         </Container>
+
     );
 }
 
