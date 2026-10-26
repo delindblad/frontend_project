@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Container, Form } from "react-bootstrap";
 import QuizQuestion from "./QuizQuestion.jsx";
 import QuizResult from "./QuizResult.jsx";
+import { saveQuizResult } from "../js/LearnerProgress.js";
 
 // Copy and shuffle each question's options without changing the JSON data.
 function shuffleOptions(questions) {
@@ -13,10 +14,7 @@ function shuffleOptions(questions) {
     for (let i = options.length - 1; i > 0; i--) {
       const randomIndex = Math.floor(Math.random() * (i + 1));
 
-      [options[i], options[randomIndex]] = [
-        options[randomIndex],
-        options[i],
-      ];
+      [options[i], options[randomIndex]] = [options[randomIndex], options[i]];
     }
 
     // Preserve the question and option IDs so scoring remains correct.
@@ -55,14 +53,40 @@ function QuizForm({ course, quiz }) {
     }));
   }
 
-  // Prevent a page reload and reveal feedback after every question is answered.
-  function handleSubmit(event) {
-    event.preventDefault();
+function handleSubmit(event) {
+  event.preventDefault();
 
-    if (allAnswered) {
-      setSubmitted(true);
-    }
+  console.log("Submit", {
+    allAnswered,
+    courseId: course.id,
+    score,
+    totalQuestions: questions.length,
+  });
+
+  if (allAnswered) {
+    const result = saveQuizResult(course.id, score, questions.length);
+
+    console.log("saveQuizResult returned:", result);
+    console.log("localStorage keys:", Object.keys(localStorage));
+
+    setSubmitted(true);
   }
+}
+
+
+
+
+
+  // Prevent a page reload and reveal feedback after every question is answered.
+  // Also saves the result in localStorage
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   if (allAnswered) {
+  //     saveQuizResult(course.id, score, questions.length);
+  //     setSubmitted(true);
+  //   }
+  // }
 
   // Clear the previous attempt and reshuffle options for a fresh attempt.
   function handleRetry() {
@@ -70,6 +94,7 @@ function QuizForm({ course, quiz }) {
     setSubmitted(false);
     setQuestions(shuffleOptions(quiz.questions));
   }
+
 
   return (
     <Container className="py-4">
