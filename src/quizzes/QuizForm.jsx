@@ -4,21 +4,46 @@ import { Button, Container, Form } from "react-bootstrap";
 import QuizQuestion from "./QuizQuestion.jsx";
 import QuizResult from "./QuizResult.jsx";
 
+// Copy and shuffle each question's options without changing the JSON data.
+function shuffleOptions(questions) {
+  return questions.map((question) => {
+    const options = [...question.options];
+
+    // Fisher–Yates shuffle: randomly rearrange the answer options.
+    for (let i = options.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+
+      [options[i], options[randomIndex]] = [
+        options[randomIndex],
+        options[i],
+      ];
+    }
+
+    // Preserve the question and option IDs so scoring remains correct.
+    return { ...question, options };
+  });
+}
+
 // Manage the quiz answers, submission, scoring, and retry.
 function QuizForm({ course, quiz }) {
+  // Shuffle when the quiz opens, keeping options stable while answering.
+  const [questions, setQuestions] = useState(() =>
+    shuffleOptions(quiz.questions),
+  );
+
   // Store answers as question ID → selected option ID.
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   // Count answered questions to track progress and enable submission.
-  const answeredCount = quiz.questions.filter(
+  const answeredCount = questions.filter(
     (question) => answers[question.id] !== undefined,
   ).length;
 
-  const allAnswered = answeredCount === quiz.questions.length;
+  const allAnswered = answeredCount === questions.length;
 
-  // Calculate the score from the current answers.
-  const score = quiz.questions.filter(
+  // Compare option IDs, so shuffled positions do not affect scoring.
+  const score = questions.filter(
     (question) => answers[question.id] === question.correctAnswerId,
   ).length;
 
@@ -30,7 +55,7 @@ function QuizForm({ course, quiz }) {
     }));
   }
 
-  // Prevent a page reload and reveal feedback once all answers are filled.
+  // Prevent a page reload and reveal feedback after every question is answered.
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -39,10 +64,11 @@ function QuizForm({ course, quiz }) {
     }
   }
 
-  // Clear the answers and hide feedback for a fresh attempt.
+  // Clear the previous attempt and reshuffle options for a fresh attempt.
   function handleRetry() {
     setAnswers({});
     setSubmitted(false);
+    setQuestions(shuffleOptions(quiz.questions));
   }
 
   return (
@@ -61,12 +87,12 @@ function QuizForm({ course, quiz }) {
       </p>
 
       <p>
-        {answeredCount} of {quiz.questions.length} questions answered
+        {answeredCount} of {questions.length} questions answered
       </p>
 
       <Form onSubmit={handleSubmit}>
-        {/* Pass each question its selected answer and update callback. */}
-        {quiz.questions.map((question, index) => (
+        {/* Display each question with its shuffled answer options. */}
+        {questions.map((question, index) => (
           <QuizQuestion
             key={question.id}
             question={question}
@@ -80,7 +106,7 @@ function QuizForm({ course, quiz }) {
         {/* Keep the result component mounted for accessible announcements. */}
         <QuizResult
           score={score}
-          totalQuestions={quiz.questions.length}
+          totalQuestions={questions.length}
           submitted={submitted}
         />
 
