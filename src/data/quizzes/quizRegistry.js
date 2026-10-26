@@ -29,6 +29,9 @@ import rustBeginner from "./rust-beginner.json";
 // Load the quiz on Rust traits, generics, iterators, and error handling.
 import rustIntermediate from "./rust-intermediate.json";
 
+// Load the quiz on Rust concurrency, async, unsafe code, and profiling.
+import rustExpert from "./rust-expert.json";
+
 // Match quiz content to the corresponding course IDs in courses.js.
 const quizzes = {
   "csharp-beginner": csharpBeginner,
@@ -42,6 +45,7 @@ const quizzes = {
   "kubernetes-expert": kubernetesExpert,
   "rust-beginner": rustBeginner,
   "rust-intermediate": rustIntermediate,
+  "rust-expert": rustExpert,
 };
 
 export default quizzes;
