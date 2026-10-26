@@ -1,0 +1,197 @@
+{
+  "title": "Kubernetes Fundamentals Quiz",
+  "questions": [
+    {
+      "id": "kubernetes-beginner-purpose",
+      "question": "What is the main purpose of Kubernetes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To replace application source code."
+        },
+        {
+          "id": "b",
+          "text": "To automate the deployment, scaling and management of containerized applications."
+        },
+        {
+          "id": "c",
+          "text": "To act as a programming language."
+        },
+        {
+          "id": "d",
+          "text": "To guarantee that applications contain no bugs."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Kubernetes manages containerized workloads, helping automate deployment, scaling and recovery. Application development and testing are still necessary."
+    },
+    {
+      "id": "kubernetes-beginner-node",
+      "question": "What is a node in a Kubernetes cluster?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A physical or virtual machine that can run Pods."
+        },
+        {
+          "id": "b",
+          "text": "A single environment variable."
+        },
+        {
+          "id": "c",
+          "text": "A folder containing only application images."
+        },
+        {
+          "id": "d",
+          "text": "A user's browser session."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "A node is a machine in the cluster. Its components allow it to run Pods and communicate with the Kubernetes control plane."
+    },
+    {
+      "id": "kubernetes-beginner-pod",
+      "question": "What is a Pod?",
+      "options": [
+        {
+          "id": "a",
+          "text": "An entire cloud region."
+        },
+        {
+          "id": "b",
+          "text": "A replacement for the cluster control plane."
+        },
+        {
+          "id": "c",
+          "text": "A file that stores every cluster log."
+        },
+        {
+          "id": "d",
+          "text": "The smallest deployable computing unit in Kubernetes, containing one or more containers."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "A Pod contains one or more containers that are scheduled together and share networking and storage resources configured for the Pod."
+    },
+    {
+      "id": "kubernetes-beginner-scheduler",
+      "question": "What does the Kubernetes scheduler do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Write application code automatically."
+        },
+        {
+          "id": "b",
+          "text": "Build every container image."
+        },
+        {
+          "id": "c",
+          "text": "Select a suitable node for a Pod that has not yet been assigned to a node."
+        },
+        {
+          "id": "d",
+          "text": "Replace all application configuration."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "The scheduler assigns unscheduled Pods to nodes, considering resource requirements, constraints and other scheduling factors."
+    },
+    {
+      "id": "kubernetes-beginner-deployment",
+      "question": "Why use a Deployment for a stateless application?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To manage the desired number of Pod replicas and support controlled updates."
+        },
+        {
+          "id": "b",
+          "text": "To guarantee permanent storage inside every container."
+        },
+        {
+          "id": "c",
+          "text": "To remove the need for container images."
+        },
+        {
+          "id": "d",
+          "text": "To ensure Pods can never be replaced."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "A Deployment manages ReplicaSets to maintain the desired application replicas and supports updates to the Pod template."
+    },
+    {
+      "id": "kubernetes-beginner-replicas",
+      "question": "A Deployment requests three replicas. One of its Pods is deleted. What does Kubernetes normally attempt to do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Permanently reduce the desired replica count to two."
+        },
+        {
+          "id": "b",
+          "text": "Delete the entire cluster."
+        },
+        {
+          "id": "c",
+          "text": "Wait for a user to recreate the Pod manually."
+        },
+        {
+          "id": "d",
+          "text": "Create a replacement Pod to restore the desired replica count."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "The ReplicaSet controller attempts to maintain the requested number of replicas. A replacement Pod can become available if scheduling and startup succeed."
+    },
+    {
+      "id": "kubernetes-beginner-service",
+      "question": "Why use a Service to access application Pods?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It prevents application Pods from ever restarting."
+        },
+        {
+          "id": "b",
+          "text": "It provides a stable way to reach a changing set of Pods."
+        },
+        {
+          "id": "c",
+          "text": "It compiles the application source code."
+        },
+        {
+          "id": "d",
+          "text": "It automatically makes every application publicly accessible."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "A Service provides a stable network abstraction for accessing Pods even as individual Pods are replaced. External exposure depends on the Service type and infrastructure."
+    },
+    {
+      "id": "kubernetes-beginner-selector",
+      "question": "How does a typical selector-based Service identify the application Pods it should target?",
+      "options": [
+        {
+          "id": "a",
+          "text": "By choosing Pods with the longest names."
+        },
+        {
+          "id": "b",
+          "text": "By reading comments in the application code."
+        },
+        {
+          "id": "c",
+          "text": "By matching its selector against Pod labels."
+        },
+        {
+          "id": "d",
+          "text": "By selecting every Pod in every namespace."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "A selector-based Service matches Pod labels in its namespace. Kubernetes uses the matching Pods to maintain the Service's endpoints."
+    }
+  ]
+}

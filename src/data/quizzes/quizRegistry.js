@@ -14,6 +14,9 @@ import cppBeginner from "./cpp-beginner.json";
 // Load the cloud concepts, deployment, and security quiz.
 import cloudBeginner from "./cloud-beginner.json";
 
+// Load the quiz on Kubernetes clusters, Pods, Deployments, and Services.
+import kubernetesBeginner from "./kubernetes-beginner.json";
+
 // Match quiz content to the corresponding course IDs in courses.js.
 const quizzes = {
   "csharp-beginner": csharpBeginner,
@@ -22,6 +25,7 @@ const quizzes = {
   "ai-beginner": aiBeginner,
   "cpp-beginner": cppBeginner,
   "cloud-beginner": cloudBeginner,
+  "kubernetes-beginner": kubernetesBeginner,
 };
 
 export default quizzes;
