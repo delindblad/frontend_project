@@ -125,3 +125,20 @@
         ]
     }
 }
+
+export const currentCourses = [
+    ' ',
+    'Cloud Computing Fundamentals - Lab ',
+    'Cloud Computing Fundamentals - Lecture',
+    'Cloud Computing Fundamentals - Self Study',
+    'Cloud Computing Fundamentals - Quiz',
+    'Cloud Computing Fundamentals - Exam',
+    'Advanced Web Development - Lab',
+    'Advanced Web Development - Lecture',
+    "Advanced Web Development - Self Study",
+    "Advanced Web Development - Quiz",
+    'Advanced Web Development - Exam'
+
+]
+
+
