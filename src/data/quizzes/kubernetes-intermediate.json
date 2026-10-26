@@ -1,0 +1,197 @@
+{
+  "title": "Kubernetes Application Delivery Quiz",
+  "questions": [
+    {
+      "id": "kubernetes-intermediate-chart",
+      "question": "What is a Helm chart?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A dashboard showing only CPU usage."
+        },
+        {
+          "id": "b",
+          "text": "A package of templates and configuration used to define Kubernetes resources."
+        },
+        {
+          "id": "c",
+          "text": "A replacement for container images."
+        },
+        {
+          "id": "d",
+          "text": "A physical machine in a cluster."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "A Helm chart packages related Kubernetes resource templates, default values and metadata so an application can be installed and configured consistently."
+    },
+    {
+      "id": "kubernetes-intermediate-values",
+      "question": "What is the purpose of values.yaml in a typical Helm chart?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To store every application's runtime logs."
+        },
+        {
+          "id": "b",
+          "text": "To replace the Kubernetes API."
+        },
+        {
+          "id": "c",
+          "text": "To build the application's container image."
+        },
+        {
+          "id": "d",
+          "text": "To provide default configuration values used by the chart's templates."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "values.yaml supplies default template values, such as an image tag or replica count. These defaults can be overridden for a particular installation or upgrade."
+    },
+    {
+      "id": "kubernetes-intermediate-environments",
+      "question": "The same application needs different replica counts in development and production. Which approach supports reuse of one Helm chart?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use separate environment values files that override the replica count."
+        },
+        {
+          "id": "b",
+          "text": "Manually edit running Pods after every deployment."
+        },
+        {
+          "id": "c",
+          "text": "Remove the replica count from all configuration."
+        },
+        {
+          "id": "d",
+          "text": "Require development and production to use identical resources."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Environment-specific values files allow the same chart templates to be reused with different settings, reducing duplication."
+    },
+    {
+      "id": "kubernetes-intermediate-render",
+      "question": "Why inspect the Kubernetes manifests rendered from a Helm chart before deploying?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rendering guarantees that the application has no bugs."
+        },
+        {
+          "id": "b",
+          "text": "Rendering automatically tests every external dependency."
+        },
+        {
+          "id": "c",
+          "text": "It helps verify that templates and values produce the intended resource configuration."
+        },
+        {
+          "id": "d",
+          "text": "It removes the need for deployment permissions."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Reviewing rendered manifests can reveal unexpected names, image references or configuration. Runtime behavior still needs separate validation."
+    },
+    {
+      "id": "kubernetes-intermediate-pipeline",
+      "question": "Which sequence is a reasonable application delivery pipeline?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deploy to production, delete the source code, then run tests."
+        },
+        {
+          "id": "b",
+          "text": "Run tests, build and publish a versioned image, deploy it, then verify application health."
+        },
+        {
+          "id": "c",
+          "text": "Skip tests and manually modify every production container."
+        },
+        {
+          "id": "d",
+          "text": "Publish credentials in the repository, then deploy."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "A delivery pipeline checks the code, creates a deployable artifact, deploys that artifact and verifies the resulting application."
+    },
+    {
+      "id": "kubernetes-intermediate-promotion",
+      "question": "An image has passed staging tests. What best ensures production receives exactly the same image artifact?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rebuild the image from whichever source code is newest."
+        },
+        {
+          "id": "b",
+          "text": "Use any image carrying the latest tag."
+        },
+        {
+          "id": "c",
+          "text": "Edit the image manually before deployment."
+        },
+        {
+          "id": "d",
+          "text": "Deploy the tested image using its immutable digest."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "An image digest identifies specific image content. Promoting that digest avoids accidentally deploying a different build or a tag that has changed."
+    },
+    {
+      "id": "kubernetes-intermediate-readiness",
+      "question": "What is the purpose of a readiness probe during application delivery?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To indicate whether a container is ready to receive application traffic."
+        },
+        {
+          "id": "b",
+          "text": "To compile the application."
+        },
+        {
+          "id": "c",
+          "text": "To replace all unit tests."
+        },
+        {
+          "id": "d",
+          "text": "To guarantee that the application will remain healthy forever."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Readiness helps Kubernetes determine whether a Pod should receive normal Service traffic. It is distinct from checking whether a container should be restarted."
+    },
+    {
+      "id": "kubernetes-intermediate-rollback",
+      "question": "Why should a release rollback plan consider database changes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rolling back application code always restores every database automatically."
+        },
+        {
+          "id": "b",
+          "text": "Database changes cannot affect older application versions."
+        },
+        {
+          "id": "c",
+          "text": "An older application version may be incompatible with the changed schema or data."
+        },
+        {
+          "id": "d",
+          "text": "A rollback always requires deleting the database."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Rolling back application resources does not necessarily reverse database migrations. Compatibility and data recovery need to be considered in the release plan."
+    }
+  ]
+}
