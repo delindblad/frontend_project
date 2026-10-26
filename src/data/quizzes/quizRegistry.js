@@ -11,6 +11,9 @@ import aiBeginner from "./ai-beginner.json";
 // Load the C++ fundamentals quiz.
 import cppBeginner from "./cpp-beginner.json";
 
+// Load the cloud concepts, deployment, and security quiz.
+import cloudBeginner from "./cloud-beginner.json";
+
 // Match quiz content to the corresponding course IDs in courses.js.
 const quizzes = {
   "csharp-beginner": csharpBeginner,
@@ -18,6 +21,7 @@ const quizzes = {
   "web-advanced": webAdvanced,
   "ai-beginner": aiBeginner,
   "cpp-beginner": cppBeginner,
+  "cloud-beginner": cloudBeginner,
 };
 
 export default quizzes;
