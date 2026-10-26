@@ -127,7 +127,8 @@
 }
 
 export const currentCourses = [
-    'Cloud Computing Fundamentals - Lab',
+    ' ',
+    'Cloud Computing Fundamentals - Lab ',
     'Cloud Computing Fundamentals - Lecture',
     'Cloud Computing Fundamentals - Self Study',
     'Cloud Computing Fundamentals - Quiz',

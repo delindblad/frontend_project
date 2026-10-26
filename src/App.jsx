@@ -5,6 +5,7 @@ import Courses from "./Courses.jsx";
 import CourseDetails from './CourseDetails.jsx';
 import NavBar from "./NavBar.jsx";
 import Schedule from "./Schedule.jsx";
+import CookieModal from "./CookieModal.jsx";
 import { schedule } from './data/schedule.js';
 import Footer from "./Footer.jsx";
 import {currentCourses} from "./data/schedule.js";
@@ -24,6 +25,8 @@ function App() {
             </nav>*/}
 
             {/* Routes */}
+
+
             <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />

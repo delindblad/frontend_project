@@ -2,6 +2,8 @@
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import {useState} from "react";
+import {faSchoolFlag} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ScheduleComponent(props) {
 
@@ -11,7 +13,8 @@ function ScheduleComponent(props) {
         <Table border-top border-4 border-primary bg-primary-subtle stiped="true" bordered>
             <thead>
             <tr>
-                <th className="text-muted bg-primary-subtle" colSpan={6}><h1><span className="badge bg-primary">My schedule</span></h1></th>
+                <th className="text-muted bg-primary-subtle" colSpan={6}><h1><span className="badge bg-primary">My schedule</span></h1>
+                </th>
             </tr>
             <tr>
 
@@ -27,75 +30,75 @@ function ScheduleComponent(props) {
             <tr>
                 <td >08:00</td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"0800Monday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"0800Monday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"0800Tuesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"0800Tuesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"0800Wednesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"0800Wednesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"0800Thursday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"0800Thursday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"0800Friday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"0800Friday"}/>
                 </td>
             </tr>
             <tr>
                 <td>10:00</td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1000Monday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1000Monday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1000Tuesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1000Tuesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1000Wednesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1000Wednesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1000Thursday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1000Thursday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1000Friday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1000Friday"}/>
                 </td>
 
             </tr>
             <tr>
                 <td>13:00</td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1300Monday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1300Monday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1300Tuesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1300Tuesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1300Wednesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1300Wednesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1300Thursday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1300Thursday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1300Friday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1300Friday"}/>
                 </td>
 
             </tr>
             <tr>
                 <td>15:00</td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1500Monday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1500Monday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1500Tuesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1500Tuesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1500Wednesday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1500Wednesday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1500Thursday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1500Thursday"}/>
                 </td>
                 <td>
-                    <SubjectItem currentCourses={currentCourses} id={"1500Friday"}/>
+                    <SubjectSelection currentCourses={currentCourses} id={"1500Friday"} />
                 </td>
 
             </tr>
@@ -105,10 +108,16 @@ function ScheduleComponent(props) {
 }
 
 
-function SubjectItem(props) {
-    const [selectedValue, setSelected] = useState("");
+function SubjectSelection(props) {
     const currentCourses = props.currentCourses;
-    //const storedValue = localStorage.getItem(props.id);
+    const storedValue = localStorage.getItem(props.id);
+
+    //console.log(storedValue);
+    const [selectedValue, setSelected] = useState("");
+
+
+
+
     /*if (localStorage.getItem(storedValue) === null) {
         //Set to empty
         setSelected("");
@@ -119,12 +128,19 @@ function SubjectItem(props) {
 
     }*/
 
+    const handleChange = (event) => {
+        setSelected(event.target.value)
+        localStorage.setItem(props.id,event.target.value)
+    }
+
+
+
     return (
-    <Form.Select size="sm" value={""}>
+    <Form.Select id={props.id} size="sm" value={storedValue} onChange={handleChange}>
 
         {
             currentCourses.map(
-                (item) => <option className={item} value={item}>{item}</option>
+                (item, index) => <option key={index} className={item} value={item}>{item}</option>
             )
         }
     </Form.Select>
