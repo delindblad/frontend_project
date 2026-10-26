@@ -1,10 +1,11 @@
-// Import the quiz content stored in each course's JSON file.
+// Import each course's quiz content from its JSON file.
 import csharpBeginner from "./csharp-beginner.json";
+import csharpExpert from "./csharp-expert.json";
 
-// Connect each course ID from courses.js to its quiz content.
-// Register additional quizzes here when their JSON files are ready.
+// Match quiz content to the corresponding course IDs in courses.js.
 const quizzes = {
   "csharp-beginner": csharpBeginner,
+  "csharp-expert": csharpExpert,
 };
 
 export default quizzes;

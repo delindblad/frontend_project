@@ -1,0 +1,137 @@
+{
+  "title": "Advanced C# Quiz",
+  "questions": [
+    {
+      "id": "csharp-expert-filter",
+      "question": "Which LINQ method filters a sequence to include only elements that satisfy a condition?",
+      "options": [
+        { "id": "a", "text": "Select()" },
+        { "id": "b", "text": "OrderBy()" },
+        { "id": "c", "text": "Where()" },
+        { "id": "d", "text": "GroupBy()" }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Where filters a sequence using a condition. For example, numbers.Where(n => n > 10) selects only numbers greater than 10."
+    },
+    {
+      "id": "csharp-expert-projection",
+      "question": "What values does this LINQ query produce when enumerated?\n\nint[] numbers = { 1, 2, 3 };\nvar result = numbers.Select(n => n * 2);",
+      "options": [
+        { "id": "a", "text": "2, 4, 6" },
+        { "id": "b", "text": "1, 2, 3" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "6, 4, 2" }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Select transforms each element. Multiplying each number by 2 produces 2, 4 and 6."
+    },
+    {
+      "id": "csharp-expert-grouping",
+      "question": "Which expression groups employees by department?",
+      "options": [
+        { "id": "a", "text": "employees.OrderBy(e => e.Department)" },
+        { "id": "b", "text": "employees.Select(e => e.Department)" },
+        { "id": "c", "text": "employees.Where(e => e.Department == \"IT\")" },
+        { "id": "d", "text": "employees.GroupBy(e => e.Department)" }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "GroupBy creates groups based on a key. Here, employees with the same Department value belong to the same group."
+    },
+    {
+      "id": "csharp-expert-ordering",
+      "question": "Which expression sorts employees by department, then by name within each department?",
+      "options": [
+        {
+          "id": "a",
+          "text": "employees.OrderBy(e => e.Department).OrderBy(e => e.Name)"
+        },
+        {
+          "id": "b",
+          "text": "employees.OrderBy(e => e.Department).ThenBy(e => e.Name)"
+        },
+        {
+          "id": "c",
+          "text": "employees.GroupBy(e => e.Name)"
+        },
+        {
+          "id": "d",
+          "text": "employees.Select(e => e.Department)"
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "OrderBy defines the primary sort order. ThenBy adds a secondary sort order for elements with the same primary key."
+    },
+    {
+      "id": "csharp-expert-await",
+      "question": "What happens when await is applied to a Task that has not yet completed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It always creates a new thread."
+        },
+        {
+          "id": "b",
+          "text": "It blocks the current thread until the task finishes."
+        },
+        {
+          "id": "c",
+          "text": "It suspends the async method without blocking the current thread, then resumes the method when the task completes."
+        },
+        {
+          "id": "d",
+          "text": "It cancels the task."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Await allows an async method to suspend while a task is incomplete without blocking the current thread. Await itself does not create a new thread."
+    },
+    {
+      "id": "csharp-expert-errors",
+      "question": "How can a caller catch an exception from an async Task-returning method?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Await the method inside a try block with an appropriate catch block."
+        },
+        {
+          "id": "b",
+          "text": "Call the method without awaiting it inside a try block."
+        },
+        {
+          "id": "c",
+          "text": "Use a finally block instead of a catch block."
+        },
+        {
+          "id": "d",
+          "text": "Exceptions from async methods cannot be caught."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "An exception stored in a faulted Task is rethrown when the task is awaited. A surrounding try/catch can handle that exception."
+    },
+    {
+      "id": "csharp-expert-testing",
+      "question": "In the Arrange–Act–Assert pattern, what happens during the Assert step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The test data and dependencies are prepared."
+        },
+        {
+          "id": "b",
+          "text": "The method being tested is called."
+        },
+        {
+          "id": "c",
+          "text": "The application is deployed."
+        },
+        {
+          "id": "d",
+          "text": "The actual result is checked against the expected behavior."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "Arrange prepares the test, Act performs the operation, and Assert verifies that the observed behavior matches the expectation."
+    }
+  ]
+}
