@@ -3,6 +3,9 @@ import { courses } from "./data/courses.js";
 import { Badge, Card, Col, Container, Row, Button } from "react-bootstrap";
 import { useState } from "react";
 
+// Check whether the selected course has a registered quiz.
+import quizzes from "./data/quizzes/quizRegistry.js";
+
 function CourseDetails() {
   const { courseId } = useParams();
   const [selectedModuleId, setSelectedModuleId] = useState(null);
@@ -109,6 +112,31 @@ function CourseDetails() {
               </Card>
             )}
           </section>
+
+          {/* Show the quiz entry point only when this course has questions. */}
+          {quizzes[course.id]?.questions?.length > 0 && (
+            <section className="mt-4">
+              <Card className="border-0 bg-success-subtle">
+                <Card.Body>
+                  <h2 className="h4">Test your knowledge</h2>
+
+                  <p>
+                    Take the course quiz to check your understanding and
+                    review explanations of the answers.
+                  </p>
+
+                  {/* Open the shared quiz page for this course. */}
+                  <Button
+                    as={Link}
+                    to={`/courses/${course.id}/quiz`}
+                    variant="success"
+                  >
+                    Take quiz
+                  </Button>
+                </Card.Body>
+              </Card>
+            </section>
+          )}
         </>
       ) : (
         <div className="alert alert-warning mt-4">Course not found.</div>

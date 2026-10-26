@@ -1,0 +1,197 @@
+{
+  "title": "Cloud Computing Fundamentals Quiz",
+  "questions": [
+    {
+      "id": "cloud-beginner-iaas",
+      "question": "Which example best describes Infrastructure as a Service (IaaS)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using a complete web-based email application."
+        },
+        {
+          "id": "b",
+          "text": "Renting virtual machines and managing their operating systems and applications."
+        },
+        {
+          "id": "c",
+          "text": "Buying a physical computer for your home."
+        },
+        {
+          "id": "d",
+          "text": "Editing a document stored only on your laptop."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "IaaS provides infrastructure such as virtual machines, storage and networking. Customers typically manage the operating systems and applications running on their virtual machines."
+    },
+    {
+      "id": "cloud-beginner-paas",
+      "question": "What is a main benefit of Platform as a Service (PaaS)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It removes the need to write or maintain application code."
+        },
+        {
+          "id": "b",
+          "text": "It guarantees that applications never fail."
+        },
+        {
+          "id": "c",
+          "text": "It requires customers to maintain the provider's physical servers."
+        },
+        {
+          "id": "d",
+          "text": "It lets developers deploy applications while the provider manages much of the underlying platform."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "PaaS reduces infrastructure and platform management work. Developers still need to manage their application code, data and relevant configuration."
+    },
+    {
+      "id": "cloud-beginner-saas",
+      "question": "Which example best describes Software as a Service (SaaS)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using a provider-managed online email service through a browser."
+        },
+        {
+          "id": "b",
+          "text": "Installing an operating system on a rented virtual machine."
+        },
+        {
+          "id": "c",
+          "text": "Assembling a physical server."
+        },
+        {
+          "id": "d",
+          "text": "Configuring network cables in a data center."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "SaaS delivers a ready-to-use application over a network. The provider manages the application infrastructure, while customers manage their usage, data and available settings."
+    },
+    {
+      "id": "cloud-beginner-region",
+      "question": "What is a cloud region?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A user's password policy."
+        },
+        {
+          "id": "b",
+          "text": "A folder containing application source code."
+        },
+        {
+          "id": "c",
+          "text": "A geographic area where a cloud provider operates infrastructure."
+        },
+        {
+          "id": "d",
+          "text": "A programming language used for cloud applications."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "A region is a geographic location for cloud infrastructure. Region selection can affect latency, service availability and data-location requirements."
+    },
+    {
+      "id": "cloud-beginner-availability",
+      "question": "Why might an application be deployed across multiple availability zones within a region?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To eliminate the need for backups."
+        },
+        {
+          "id": "b",
+          "text": "To reduce the impact of a failure affecting one zone."
+        },
+        {
+          "id": "c",
+          "text": "To make authentication unnecessary."
+        },
+        {
+          "id": "d",
+          "text": "To guarantee zero operating costs."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Availability zones provide separate infrastructure locations within a region. An appropriately designed application can continue operating when one zone has a failure."
+    },
+    {
+      "id": "cloud-beginner-deployment",
+      "question": "Before sending real user traffic to a newly deployed application, what should you do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Remove all application logs."
+        },
+        {
+          "id": "b",
+          "text": "Make every configuration value public."
+        },
+        {
+          "id": "c",
+          "text": "Disable authentication to simplify testing."
+        },
+        {
+          "id": "d",
+          "text": "Verify configuration, required connections and application health."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "Deployment checks help confirm that the application starts correctly, has the required configuration and can reach its dependencies before users rely on it."
+    },
+    {
+      "id": "cloud-beginner-access",
+      "question": "What does the principle of least privilege mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grant only the permissions needed to perform a task."
+        },
+        {
+          "id": "b",
+          "text": "Give every user administrator access."
+        },
+        {
+          "id": "c",
+          "text": "Use one shared administrator account for everyone."
+        },
+        {
+          "id": "d",
+          "text": "Allow access without checking identity."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Least privilege limits access to what a person or service needs. This reduces the potential impact of mistakes or compromised accounts."
+    },
+    {
+      "id": "cloud-beginner-secrets",
+      "question": "An application needs a private database password. Which approach is appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Commit it to a public source-code repository."
+        },
+        {
+          "id": "b",
+          "text": "Include it in JavaScript sent to every user's browser."
+        },
+        {
+          "id": "c",
+          "text": "Store it in a protected secrets service and grant the backend only the access it needs."
+        },
+        {
+          "id": "d",
+          "text": "Print it in every application log message."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Private credentials should be protected and accessible only to authorized services. Browser-delivered code and public repositories cannot keep a database password secret."
+    }
+  ]
+}

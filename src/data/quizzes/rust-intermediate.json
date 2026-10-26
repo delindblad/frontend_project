@@ -1,0 +1,161 @@
+{
+  "title": "Intermediate Rust Quiz",
+  "questions": [
+    {
+      "id": "rust-intermediate-traits",
+      "question": "What is the main purpose of a trait in Rust?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To define shared behavior that types can implement."
+        },
+        {
+          "id": "b",
+          "text": "To disable the borrow checker."
+        },
+        {
+          "id": "c",
+          "text": "To make every value globally accessible."
+        },
+        {
+          "id": "d",
+          "text": "To replace every struct with a string."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "A trait defines behavior through associated items such as methods. Different types can implement that trait."
+    },
+    {
+      "id": "rust-intermediate-implementation",
+      "question": "Which syntax begins an implementation of the Describe trait for a Book struct?",
+      "options": [
+        { "id": "a", "text": "class Book extends Describe {" },
+        { "id": "b", "text": "trait Book implements Describe {" },
+        { "id": "c", "text": "impl Describe for Book {" },
+        { "id": "d", "text": "implement Book with Describe {" }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "impl Describe for Book begins a trait implementation. The block provides the associated items required by Describe."
+    },
+    {
+      "id": "rust-intermediate-generics",
+      "question": "What is the purpose of T in this function?\n\nfn identity<T>(value: T) -> T {\n    value\n}",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires every argument to be a string."
+        },
+        {
+          "id": "b",
+          "text": "It represents a generic type, allowing the function to work with different types."
+        },
+        {
+          "id": "c",
+          "text": "It makes value mutable."
+        },
+        {
+          "id": "d",
+          "text": "It means the function returns no value."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "T is a generic type parameter. The function accepts a value of that type and returns the same value."
+    },
+    {
+      "id": "rust-intermediate-bounds",
+      "question": "What does the bound T: std::fmt::Display require?",
+      "options": [
+        {
+          "id": "a",
+          "text": "T must be exactly String."
+        },
+        {
+          "id": "b",
+          "text": "T must implement Copy."
+        },
+        {
+          "id": "c",
+          "text": "T must be a numeric type."
+        },
+        {
+          "id": "d",
+          "text": "T must implement Display, allowing formatting with {}."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "A trait bound restricts which types can be used. Display provides user-facing formatting through the {} placeholder."
+    },
+    {
+      "id": "rust-intermediate-iterators",
+      "question": "What values are collected into doubled?\n\nlet numbers = vec![1, 2, 3];\nlet doubled: Vec<i32> = numbers.iter().map(|n| *n * 2).collect();",
+      "options": [
+        { "id": "a", "text": "[2, 4, 6]" },
+        { "id": "b", "text": "[1, 2, 3]" },
+        { "id": "c", "text": "[6, 4, 2]" },
+        { "id": "d", "text": "[2]" }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "iter produces references to the elements. The closure dereferences each value and doubles it. collect gathers the results into a vector."
+    },
+    {
+      "id": "rust-intermediate-closures",
+      "question": "What does add_offset(3) return?\n\nlet offset = 5;\nlet add_offset = |number| number + offset;",
+      "options": [
+        { "id": "a", "text": "3" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "8" },
+        { "id": "d", "text": "The closure cannot access offset." }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Closures can capture values from their surrounding environment. This closure adds the captured offset of 5 to its argument of 3."
+    },
+    {
+      "id": "rust-intermediate-option",
+      "question": "What does Option<T> represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A value that always contains an error message."
+        },
+        {
+          "id": "b",
+          "text": "Either a present value, Some(T), or an absent value, None."
+        },
+        {
+          "id": "c",
+          "text": "A collection containing exactly two values."
+        },
+        {
+          "id": "d",
+          "text": "A value that automatically ignores ownership rules."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Option models the possible absence of a value. Code can handle Some and None explicitly, for example with match."
+    },
+    {
+      "id": "rust-intermediate-result",
+      "question": "In a compatible Result-returning function, what does applying ? to a Result do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It always panics."
+        },
+        {
+          "id": "b",
+          "text": "It silently discards every error."
+        },
+        {
+          "id": "c",
+          "text": "It automatically retries a failed operation."
+        },
+        {
+          "id": "d",
+          "text": "It extracts the Ok value or returns early with the error, converting it when required."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "The ? operator simplifies error propagation. It continues with an Ok value or returns an Err from the enclosing function, using a supported error conversion if needed."
+    }
+  ]
+}

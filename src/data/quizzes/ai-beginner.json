@@ -1,0 +1,137 @@
+{
+  "title": "AI for Beginners with Python Quiz",
+  "questions": [
+    {
+      "id": "ai-beginner-variable",
+      "question": "What type of value is stored in age after this Python statement?\n\nage = 25",
+      "options": [
+        { "id": "a", "text": "String" },
+        { "id": "b", "text": "Integer" },
+        { "id": "c", "text": "Boolean" },
+        { "id": "d", "text": "List" }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "25 is an integer. Python assigns this integer value to the variable age without requiring an explicit type declaration."
+    },
+    {
+      "id": "ai-beginner-condition",
+      "question": "What does this Python code print?\n\ntemperature = 18\nif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")",
+      "options": [
+        { "id": "a", "text": "Warm" },
+        { "id": "b", "text": "Warm and Cool" },
+        { "id": "c", "text": "Cool" },
+        { "id": "d", "text": "Nothing" }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "18 is not greater than 20, so the condition is false and the else branch prints Cool."
+    },
+    {
+      "id": "ai-beginner-loop",
+      "question": "Which numbers does this Python loop print?\n\nfor number in range(3):\n    print(number)",
+      "options": [
+        { "id": "a", "text": "0, 1, 2" },
+        { "id": "b", "text": "1, 2, 3" },
+        { "id": "c", "text": "0, 1, 2, 3" },
+        { "id": "d", "text": "3 only" }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "range(3) produces 0, 1 and 2. The stop value, 3, is excluded."
+    },
+    {
+      "id": "ai-beginner-function",
+      "question": "What value does double(4) return?\n\ndef double(number):\n    return number * 2",
+      "options": [
+        { "id": "a", "text": "2" },
+        { "id": "b", "text": "4" },
+        { "id": "c", "text": "6" },
+        { "id": "d", "text": "8" }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "The argument 4 becomes the value of number. The function returns 4 multiplied by 2, which is 8."
+    },
+    {
+      "id": "ai-beginner-learning",
+      "question": "Which example illustrates machine learning?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A calculator adding two numbers using a fixed arithmetic operation."
+        },
+        {
+          "id": "b",
+          "text": "A spam detector learning patterns from emails labelled as spam or not spam."
+        },
+        {
+          "id": "c",
+          "text": "A program printing the same welcome message every time."
+        },
+        {
+          "id": "d",
+          "text": "A file manager sorting filenames alphabetically using a fixed rule."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Machine learning uses data to learn patterns. Labelled emails provide examples from which a spam detector can learn to classify new emails."
+    },
+    {
+      "id": "ai-beginner-features",
+      "question": "A model predicts a house's price from its floor area and number of rooms. What are the floor area and number of rooms called?",
+      "options": [
+        { "id": "a", "text": "Predictions" },
+        { "id": "b", "text": "Target values" },
+        { "id": "c", "text": "Features" },
+        { "id": "d", "text": "Training errors" }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Features are the input characteristics used by a model. In this example, the house price is the target the model learns to predict."
+    },
+    {
+      "id": "ai-beginner-test-data",
+      "question": "Why should a trained model be evaluated on separate test data that was not used to train or tune it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To estimate how well it performs on unseen examples."
+        },
+        {
+          "id": "b",
+          "text": "To guarantee that every future prediction is correct."
+        },
+        {
+          "id": "c",
+          "text": "To avoid needing any training data."
+        },
+        {
+          "id": "d",
+          "text": "To automatically remove all bias."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Separate test data helps estimate performance on unseen examples. It does not guarantee perfect predictions or eliminate bias."
+    },
+    {
+      "id": "ai-beginner-data-quality",
+      "question": "A model is trained using examples from only a small, unrepresentative part of its intended user population. What is a likely concern?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It will always be more accurate because the dataset is smaller."
+        },
+        {
+          "id": "b",
+          "text": "It cannot produce any predictions."
+        },
+        {
+          "id": "c",
+          "text": "It will automatically collect the missing examples."
+        },
+        {
+          "id": "d",
+          "text": "It may perform poorly for groups or situations underrepresented in the training data."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "A model learns from its training examples. Unrepresentative data can lead to unreliable or uneven performance across the population where it is used."
+    }
+  ]
+}

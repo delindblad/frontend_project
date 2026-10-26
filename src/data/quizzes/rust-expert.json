@@ -1,0 +1,197 @@
+{
+  "title": "Advanced Rust Systems Programming Quiz",
+  "questions": [
+    {
+      "id": "rust-expert-threads",
+      "question": "What does calling join() on a thread's JoinHandle do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It immediately cancels the thread."
+        },
+        {
+          "id": "b",
+          "text": "It waits for the thread to finish and returns its outcome."
+        },
+        {
+          "id": "c",
+          "text": "It starts a second copy of the thread."
+        },
+        {
+          "id": "d",
+          "text": "It guarantees the thread cannot panic."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "join waits for the associated thread to finish. It returns Ok with the thread's return value, or Err if the thread panicked."
+    },
+    {
+      "id": "rust-expert-shared-state",
+      "question": "Why is Arc<Mutex<T>> commonly used for mutable state shared between threads?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Arc provides shared ownership, while Mutex controls access to the protected value."
+        },
+        {
+          "id": "b",
+          "text": "Arc automatically makes every operation on T atomic."
+        },
+        {
+          "id": "c",
+          "text": "Mutex creates an independent copy for every thread."
+        },
+        {
+          "id": "d",
+          "text": "The combination prevents every possible deadlock."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Arc supports shared ownership across threads through atomic reference counting. Mutex provides exclusive access to its protected value. Appropriate type bounds still apply, and deadlocks remain possible."
+    },
+    {
+      "id": "rust-expert-channels",
+      "question": "What is a channel commonly used for in concurrent Rust programs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disabling ownership checks between threads."
+        },
+        {
+          "id": "b",
+          "text": "Making all shared variables mutable."
+        },
+        {
+          "id": "c",
+          "text": "Guaranteeing that all threads run simultaneously."
+        },
+        {
+          "id": "d",
+          "text": "Passing messages between senders and receivers."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "Channels support communication through messages. They can reduce the need for explicitly shared mutable state."
+    },
+    {
+      "id": "rust-expert-futures",
+      "question": "Calling an async fn returns a future. What drives that future toward completion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Simply storing it in a variable always completes the operation."
+        },
+        {
+          "id": "b",
+          "text": "Every future automatically creates a dedicated operating-system thread."
+        },
+        {
+          "id": "c",
+          "text": "Polling the future, typically through an executor."
+        },
+        {
+          "id": "d",
+          "text": "Adding the mut keyword to its variable."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Futures make progress through polling. An executor polls tasks and can poll them again after they are woken. Calling an async function alone does not execute its body."
+    },
+    {
+      "id": "rust-expert-blocking",
+      "question": "Why can a long blocking operation be problematic inside an async task?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It can occupy an executor thread and delay other tasks that need that thread."
+        },
+        {
+          "id": "b",
+          "text": "It automatically causes undefined behavior."
+        },
+        {
+          "id": "c",
+          "text": "It makes every future execute in parallel."
+        },
+        {
+          "id": "d",
+          "text": "It disables the type system."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Blocking work prevents the thread from polling other tasks. Depending on the runtime and workload, use an asynchronous API or move blocking work to an appropriate worker pool."
+    },
+    {
+      "id": "rust-expert-unsafe",
+      "question": "What does an unsafe block mean in Rust?",
+      "options": [
+        {
+          "id": "a",
+          "text": "All compiler checks are disabled inside the block."
+        },
+        {
+          "id": "b",
+          "text": "Certain additional operations are permitted, and the programmer must uphold their safety requirements."
+        },
+        {
+          "id": "c",
+          "text": "The code is guaranteed to be faster."
+        },
+        {
+          "id": "d",
+          "text": "Any undefined behavior becomes acceptable."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Unsafe permits operations such as dereferencing raw pointers, but their safety conditions must still hold. It does not disable ordinary type checking or make undefined behavior valid."
+    },
+    {
+      "id": "rust-expert-safety-boundary",
+      "question": "When wrapping unsafe code in a safe public API, what must the implementation ensure?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Callers must inspect the source code before every call."
+        },
+        {
+          "id": "b",
+          "text": "Every public function must contain an unsafe block."
+        },
+        {
+          "id": "c",
+          "text": "Safety requirements can be ignored if tests pass."
+        },
+        {
+          "id": "d",
+          "text": "Safe callers cannot violate the internal unsafe code's safety requirements through the exposed API."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "A sound safe abstraction must enforce the invariants required by its unsafe implementation. Documentation and testing help, but cannot replace enforcing those invariants."
+    },
+    {
+      "id": "rust-expert-profiling",
+      "question": "An application is slower than required. What is the best first step before choosing an optimization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rewrite every function using unsafe code."
+        },
+        {
+          "id": "b",
+          "text": "Assume the longest source file is the bottleneck."
+        },
+        {
+          "id": "c",
+          "text": "Measure a representative workload and profile where time or resources are spent."
+        },
+        {
+          "id": "d",
+          "text": "Add more threads without measuring the result."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Measurement identifies actual bottlenecks. Compare performance before and after a targeted change under representative conditions, while verifying correctness."
+    }
+  ]
+}

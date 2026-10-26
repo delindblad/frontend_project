@@ -1,0 +1,197 @@
+{
+  "title": "Kubernetes Production Operations Quiz",
+  "questions": [
+    {
+      "id": "kubernetes-expert-rbac",
+      "question": "A workload needs to read ConfigMaps in one namespace. Which permission approach follows least privilege?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Grant cluster-admin access to every workload."
+        },
+        {
+          "id": "b",
+          "text": "Grant its ServiceAccount only the required ConfigMap read permissions in that namespace."
+        },
+        {
+          "id": "c",
+          "text": "Disable authorization for the cluster."
+        },
+        {
+          "id": "d",
+          "text": "Give the workload a human administrator's credentials."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "Least privilege grants only the resource access and operations the workload needs. A namespaced Role and RoleBinding can provide this access to its ServiceAccount."
+    },
+    {
+      "id": "kubernetes-expert-service-account",
+      "question": "What is the role of a Kubernetes ServiceAccount?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To provide an identity for processes running in Pods."
+        },
+        {
+          "id": "b",
+          "text": "To provide permanent storage for application data."
+        },
+        {
+          "id": "c",
+          "text": "To expose every Pod to the public internet."
+        },
+        {
+          "id": "d",
+          "text": "To automatically grant administrator permissions."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "A ServiceAccount provides a workload identity. Authentication identifies the account, while authorization determines what that identity is allowed to do."
+    },
+    {
+      "id": "kubernetes-expert-network-policy",
+      "question": "What is required for Kubernetes NetworkPolicy rules to be enforced?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every Pod must run as root."
+        },
+        {
+          "id": "b",
+          "text": "All Services must use public IP addresses."
+        },
+        {
+          "id": "c",
+          "text": "All namespaces must have the same name."
+        },
+        {
+          "id": "d",
+          "text": "The cluster must use a network implementation that supports NetworkPolicy enforcement."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "Creating a NetworkPolicy resource alone is insufficient if the cluster's network implementation does not support enforcing it."
+    },
+    {
+      "id": "kubernetes-expert-container-security",
+      "question": "Which configuration helps reduce a container's privileges when the application supports it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Enable privileged mode for every container."
+        },
+        {
+          "id": "b",
+          "text": "Mount the host's entire filesystem with write access."
+        },
+        {
+          "id": "c",
+          "text": "Run as a non-root user, disallow privilege escalation and drop unnecessary Linux capabilities."
+        },
+        {
+          "id": "d",
+          "text": "Share administrator credentials between all containers."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "These settings restrict container privileges and reduce potential impact if an application is compromised. They should be tested against the application's requirements."
+    },
+    {
+      "id": "kubernetes-expert-observability",
+      "question": "An application starts returning more errors after a deployment. Which investigation is most useful?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correlate error metrics, application logs and deployment timing."
+        },
+        {
+          "id": "b",
+          "text": "Delete all logs to reduce noise."
+        },
+        {
+          "id": "c",
+          "text": "Assume CPU usage alone explains every error."
+        },
+        {
+          "id": "d",
+          "text": "Disable monitoring until the errors stop."
+        }
+      ],
+      "correctAnswerId": "a",
+      "explanation": "Metrics reveal changes and trends, while logs provide details about failures. Comparing them with deployment events helps identify likely causes."
+    },
+    {
+      "id": "kubernetes-expert-probes",
+      "question": "An application is temporarily unable to serve requests, but restarting it would not help. Which probe is intended to signal that it should stop receiving normal Service traffic?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A liveness probe configured to restart it immediately."
+        },
+        {
+          "id": "b",
+          "text": "A readiness probe."
+        },
+        {
+          "id": "c",
+          "text": "A container image signature."
+        },
+        {
+          "id": "d",
+          "text": "A resource limit."
+        }
+      ],
+      "correctAnswerId": "b",
+      "explanation": "A failed readiness probe marks the container as not ready, affecting Pod readiness and normal Service routing. Readiness failure does not itself restart the container."
+    },
+    {
+      "id": "kubernetes-expert-hpa",
+      "question": "What does a Horizontal Pod Autoscaler typically adjust?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The application's source code."
+        },
+        {
+          "id": "b",
+          "text": "The number of namespaces."
+        },
+        {
+          "id": "c",
+          "text": "The container image's filesystem."
+        },
+        {
+          "id": "d",
+          "text": "The number of replicas in a scalable workload, based on observed metrics."
+        }
+      ],
+      "correctAnswerId": "d",
+      "explanation": "Horizontal scaling changes the number of workload replicas. It differs from vertical scaling, which changes the resources allocated to individual instances."
+    },
+    {
+      "id": "kubernetes-expert-capacity",
+      "question": "An autoscaler requests more application replicas, but the new Pods remain Pending because no node has sufficient available capacity for their resource requests. What should you investigate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whether changing the Pod names will create more CPU."
+        },
+        {
+          "id": "b",
+          "text": "Whether disabling logs guarantees scheduling."
+        },
+        {
+          "id": "c",
+          "text": "Node capacity, Pod resource requests and whether node scaling can provide suitable capacity."
+        },
+        {
+          "id": "d",
+          "text": "Whether adding more replicas alone will increase node memory."
+        }
+      ],
+      "correctAnswerId": "c",
+      "explanation": "Increasing replica count does not create node resources. Scheduling requires suitable capacity, so resource requests and node scaling must be considered together."
+    }
+  ]
+}
