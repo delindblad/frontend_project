@@ -23,6 +23,9 @@ import kubernetesIntermediate from "./kubernetes-intermediate.json";
 // Load the quiz on Kubernetes security, observability, and scaling.
 import kubernetesExpert from "./kubernetes-expert.json";
 
+// Load the quiz on Rust syntax, ownership, borrowing, and data structures.
+import rustBeginner from "./rust-beginner.json";
+
 // Match quiz content to the corresponding course IDs in courses.js.
 const quizzes = {
   "csharp-beginner": csharpBeginner,
@@ -34,6 +37,7 @@ const quizzes = {
   "kubernetes-beginner": kubernetesBeginner,
   "kubernetes-intermediate": kubernetesIntermediate,
   "kubernetes-expert": kubernetesExpert,
+  "rust-beginner": rustBeginner,
 };
 
 export default quizzes;
