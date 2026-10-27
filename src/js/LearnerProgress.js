@@ -137,3 +137,46 @@ export function markLessonCompleted(lessonId) {
     ],
   }));
 }
+
+// Update only quiz results, preserving lesson progress.
+// Stop if existing progress could not be read safely.
+function updateQuizResults(updateResults) {
+  const { progress, warning } = loadLearnerProgress();
+
+  if (warning) {
+    return {
+      progress,
+      saved: false,
+      warning,
+    };
+  }
+
+  const updatedProgress = {
+    ...progress,
+    quizResultsByCourseId: updateResults(
+      progress.quizResultsByCourseId,
+    ),
+  };
+
+  const result = saveLearnerProgress(updatedProgress);
+
+  return {
+    progress: updatedProgress,
+    ...result,
+  };
+}
+
+// Delete the saved result for one course.
+export function resetQuizResult(courseId) {
+  return updateQuizResults((results) => {
+    const updatedResults = { ...results };
+    delete updatedResults[courseId];
+
+    return updatedResults;
+  });
+}
+
+// Delete all saved quiz results while preserving lesson progress.
+export function resetAllQuizResults() {
+  return updateQuizResults(() => ({}));
+}

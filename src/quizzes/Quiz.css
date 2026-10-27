@@ -12,8 +12,10 @@
   min-width: 0;
 }
 
+/* Preserve question line breaks and indentation. */
 .quiz-question-text {
   line-height: 1.7;
+  white-space: pre-wrap;
 }
 
 /* Remove extra spacing from the last paragraph in each section. */
@@ -91,9 +93,123 @@
   white-space: pre;
 }
 
-/* Allow wide display formulas to scroll on smaller screens. */
-.quiz-page .katex-display {
-  padding: 0.5rem 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+
+/* Arrange reset actions side by side, wrapping when needed. */
+.assessment-reset-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Shared appearance for both reset buttons. */
+.assessment-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Keep icons aligned and prevent them from shrinking. */
+.assessment-reset-button svg {
+  flex-shrink: 0;
+}
+
+/* Soft blue styling for resetting one quiz result. */
+.assessment-reset-selected {
+  --bs-btn-color: #274c70;
+  --bs-btn-bg: #edf4fb;
+  --bs-btn-border-color: #c7d9eb;
+  --bs-btn-hover-color: #183b5c;
+  --bs-btn-hover-bg: #dceaf7;
+  --bs-btn-hover-border-color: #91b4d5;
+  --bs-btn-active-color: #183b5c;
+  --bs-btn-active-bg: #cbdff1;
+  --bs-btn-active-border-color: #91b4d5;
+  --bs-btn-disabled-color: #274c70;
+  --bs-btn-disabled-bg: #edf4fb;
+  --bs-btn-disabled-border-color: #c7d9eb;
+}
+
+/* Soft red styling distinguishes resetting all quiz results. */
+.assessment-reset-all {
+  --bs-btn-color: #a12b36;
+  --bs-btn-bg: #fff2f3;
+  --bs-btn-border-color: #efc9ce;
+  --bs-btn-hover-color: #84212b;
+  --bs-btn-hover-bg: #fbe0e3;
+  --bs-btn-hover-border-color: #dc9da5;
+  --bs-btn-active-color: #84212b;
+  --bs-btn-active-bg: #f5cdd2;
+  --bs-btn-active-border-color: #dc9da5;
+}
+
+/* Make keyboard focus visible on both reset buttons. */
+.assessment-reset-button:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Stack reset buttons on smaller screens. */
+@media (max-width: 575.98px) {
+  .assessment-reset-button {
+    width: 100%;
+  }
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .assessment-reset-button {
+    transition: none;
+  }
+}
+
+/* Light blue background for resetting the selected quiz. */
+.quiz-page .assessment-reset-selected {
+  background-color: #eaf3fc;
+  color: #274c70;
+  border-color: #c7d9eb;
+}
+
+.quiz-page .assessment-reset-selected:hover:not(:disabled) {
+  background-color: #d9eafa;
+}
+
+/* Light pink background for resetting all quiz results. */
+.quiz-page .assessment-reset-all {
+  background-color: #fff0f2;
+  color: #a12b36;
+  border-color: #efc9ce;
+}
+
+.quiz-page .assessment-reset-all:hover:not(:disabled) {
+  background-color: #fce0e5;
+}
+
+/* Light blue background for the progress button. */
+.quiz-page .assessment-progress-button {
+  background-color: #eaf3fc;
+  color: #274c70;
+  border-color: #c7d9eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.1rem;
+  font-weight: 600;
+}
+
+.quiz-page .assessment-progress-button:hover {
+  background-color: #d9eafa;
+  color: #183b5c;
+  border-color: #91b4d5;
+}
+
+.quiz-page .assessment-progress-button:focus-visible {
+  outline: 3px solid #274c70;
+  outline-offset: 3px;
 }
