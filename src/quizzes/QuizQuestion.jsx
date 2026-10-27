@@ -1,69 +1,81 @@
 import { Alert, Card, Form } from "react-bootstrap";
+import QuizContent from "./QuizContent.jsx";
 
-// Display one question using data and callbacks supplied by QuizForm.
-// QuizForm owns the answers and submission state.
+// Display a question while QuizForm manages answers and submission.
 function QuizQuestion({
   question,
   questionNumber,
   selectedAnswer,
   submitted,
+  showAnswers = false,
   onAnswerChange,
 }) {
-  // Compare the selected option's ID with the correct answer's ID.
   const isCorrect = selectedAnswer === question.correctAnswerId;
 
-  // Find the correct option so its text can be shown after submission.
   const correctOption = question.options.find(
     (option) => option.id === question.correctAnswerId,
   );
 
+  // Reveal feedback only after submission and an explicit request.
+  const revealFeedback = submitted && showAnswers;
+  const questionTextId = `question-text-${question.id}`;
+
   return (
-    <Card className="mb-3 border-0 shadow-sm">
-      <Card.Body>
-        {/* Group the answer options under an accessible question label. */}
-        <fieldset>
-          <legend
-            className="fs-5 fw-semibold"
-            style={{ whiteSpace: "pre-wrap" }}
-          >
-            {questionNumber}. {question.question}
+    <Card className="quiz-question mb-4 border-0 shadow-sm">
+      <Card.Body className="p-4">
+        <fieldset aria-describedby={questionTextId}>
+          <legend className="fs-6 fw-bold text-secondary mb-3">
+            Question {questionNumber}
           </legend>
 
-          {/* A shared name allows only one selected option per question. */}
+          {/* Render question text, code blocks, and LaTeX formulas. */}
+          <div
+            id={questionTextId}
+            className="quiz-question-text fs-5 mb-4"
+          >
+            <QuizContent>{question.question}</QuizContent>
+          </div>
+
+          {/* Lock choices after submission without revealing answers. */}
           {question.options.map((option) => (
             <Form.Check
               key={option.id}
               type="radio"
               id={`${question.id}-${option.id}`}
               name={question.id}
-              label={option.text}
+              label={
+                <QuizContent>{option.text}</QuizContent>
+              }
               value={option.id}
               checked={selectedAnswer === option.id}
               onChange={() => onAnswerChange(question.id, option.id)}
               disabled={submitted}
               required
-              className="mb-2"
+              className="quiz-option mb-3"
             />
           ))}
         </fieldset>
 
-        {/* Reveal the result and explanation only after submission. */}
-        {submitted && (
+        {/* Show feedback only when the learner requests the answers. */}
+        {revealFeedback && (
           <Alert
             variant={isCorrect ? "success" : "danger"}
-            className="mt-3 mb-0"
+            className="mt-4 mb-0"
           >
-            <p className="fw-semibold mb-1">
+            <p className="fw-semibold mb-2">
               {isCorrect ? "Correct!" : "Incorrect."}
             </p>
 
-            {!isCorrect && (
-              <p className="mb-1">
-                Correct answer: {correctOption?.text}
-              </p>
-            )}
+            <div className="mb-2">
+              <strong>Correct answer:</strong>
+              <QuizContent>{correctOption?.text}</QuizContent>
+            </div>
 
-            <p className="mb-0">{question.explanation}</p>
+            {question.explanation && (
+              <div className="quiz-explanation">
+                <QuizContent>{question.explanation}</QuizContent>
+              </div>
+            )}
           </Alert>
         )}
       </Card.Body>

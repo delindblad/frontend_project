@@ -1,3 +1,5 @@
+// Styles for quiz cards, answer options, code, and formulas.
+import "./Quiz.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Form } from "react-bootstrap";
@@ -5,99 +7,84 @@ import QuizQuestion from "./QuizQuestion.jsx";
 import QuizResult from "./QuizResult.jsx";
 import { saveQuizResult } from "../js/LearnerProgress.js";
 
-// Copy and shuffle each question's options without changing the JSON data.
+// Shuffle copies of the options without changing the original JSON data.
 function shuffleOptions(questions) {
   return questions.map((question) => {
     const options = [...question.options];
 
-    // Fisher–Yates shuffle: randomly rearrange the answer options.
+    // Fisher–Yates shuffle.
     for (let i = options.length - 1; i > 0; i--) {
       const randomIndex = Math.floor(Math.random() * (i + 1));
 
-      [options[i], options[randomIndex]] = [options[randomIndex], options[i]];
+      [options[i], options[randomIndex]] = [
+        options[randomIndex],
+        options[i],
+      ];
     }
 
-    // Preserve the question and option IDs so scoring remains correct.
+    // Preserve IDs so scoring remains correct.
     return { ...question, options };
   });
 }
 
-// Manage the quiz answers, submission, scoring, and retry.
+// Manage answers, submission, solution visibility, and retries.
 function QuizForm({ course, quiz }) {
-  // Shuffle when the quiz opens, keeping options stable while answering.
   const [questions, setQuestions] = useState(() =>
     shuffleOptions(quiz.questions),
   );
 
-  // Store answers as question ID → selected option ID.
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
 
-  // Count answered questions to track progress and enable submission.
   const answeredCount = questions.filter(
     (question) => answers[question.id] !== undefined,
   ).length;
 
-  const allAnswered = answeredCount === questions.length;
+  const allAnswered =
+    questions.length > 0 && answeredCount === questions.length;
 
-  // Compare option IDs, so shuffled positions do not affect scoring.
+  // Compare option IDs rather than their shuffled positions.
   const score = questions.filter(
     (question) => answers[question.id] === question.correctAnswerId,
   ).length;
 
-  // Update one answer while preserving all other answers.
   function handleAnswer(questionId, optionId) {
+    // Prevent changes after submission.
+    if (submitted) return;
+
     setAnswers((previousAnswers) => ({
       ...previousAnswers,
       [questionId]: optionId,
     }));
   }
 
-function handleSubmit(event) {
-  event.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-  console.log("Submit", {
-    allAnswered,
-    courseId: course.id,
-    score,
-    totalQuestions: questions.length,
-  });
+    if (!allAnswered || submitted) return;
 
-  if (allAnswered) {
-    const result = saveQuizResult(course.id, score, questions.length);
-
-    console.log("saveQuizResult returned:", result);
-    console.log("localStorage keys:", Object.keys(localStorage));
-
+    // Save the score without revealing individual solutions.
+    saveQuizResult(course.id, score, questions.length);
     setSubmitted(true);
   }
-}
 
+  function handleShowAnswers() {
+    if (!submitted) return;
 
+    setShowAnswers(true);
+  }
 
-
-
-  // Prevent a page reload and reveal feedback after every question is answered.
-  // Also saves the result in localStorage
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   if (allAnswered) {
-  //     saveQuizResult(course.id, score, questions.length);
-  //     setSubmitted(true);
-  //   }
-  // }
-
-  // Clear the previous attempt and reshuffle options for a fresh attempt.
+  // Reset the attempt and hide solutions again.
   function handleRetry() {
     setAnswers({});
     setSubmitted(false);
+    setShowAnswers(false);
     setQuestions(shuffleOptions(quiz.questions));
   }
 
-
   return (
-    <Container className="py-4">
+    <Container className="quiz-page py-4">
       <Link
         to={`/courses/${course.id}`}
         className="link-primary text-decoration-none"
@@ -108,7 +95,8 @@ function handleSubmit(event) {
       <h1 className="mt-4">{quiz.title}</h1>
 
       <p className="text-body-secondary">
-        Choose one answer for each question, then submit your quiz.
+        Answer every question, then submit your quiz. After submission,
+        you can choose to reveal the correct answers and explanations.
       </p>
 
       <p>
@@ -116,7 +104,6 @@ function handleSubmit(event) {
       </p>
 
       <Form onSubmit={handleSubmit}>
-        {/* Display each question with its shuffled answer options. */}
         {questions.map((question, index) => (
           <QuizQuestion
             key={question.id}
@@ -124,33 +111,59 @@ function handleSubmit(event) {
             questionNumber={index + 1}
             selectedAnswer={answers[question.id]}
             submitted={submitted}
+            showAnswers={showAnswers}
             onAnswerChange={handleAnswer}
           />
         ))}
 
-        {/* Keep the result component mounted for accessible announcements. */}
+        {/* Display the overall score after submission. */}
         <QuizResult
           score={score}
           totalQuestions={questions.length}
           submitted={submitted}
         />
 
+        <div role="status" className="text-body-secondary mt-3">
+          {submitted && (
+            <p>
+              {showAnswers
+                ? "Correct answers and explanations are now shown below each question."
+                : "Your answers have been submitted. You can now reveal the correct answers."}
+            </p>
+          )}
+        </div>
+
         <div className="d-flex flex-wrap gap-2 mt-4">
-          {/* Replace the submit button with retry after submission. */}
-          {submitted ? (
-            <Button type="button" onClick={handleRetry}>
-              Try again
-            </Button>
-          ) : (
+          {!submitted ? (
             <Button type="submit" disabled={!allAnswered}>
               Submit quiz
             </Button>
+          ) : (
+            <>
+              <Button
+                type="button"
+                onClick={handleShowAnswers}
+                disabled={showAnswers}
+              >
+                {showAnswers
+                  ? "Correct answers shown"
+                  : "Show correct answers"}
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline-primary"
+                onClick={handleRetry}
+              >
+                Try again
+              </Button>
+            </>
           )}
 
           <Button
             as={Link}
             to={`/courses/${course.id}`}
-            variant="outline-primary"
+            variant="outline-secondary"
           >
             Back to course
           </Button>
