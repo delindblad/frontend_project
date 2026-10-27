@@ -1,432 +1,783 @@
+function createLesson(id, title, content = {}) {
+  return {
+    id,
+    title,
+    explanation: "",
+    codeExample: null,
+    practiceActivity: "",
+    resources: [],
+    ...content,
+  };
+}
+
+const placeholderResource = {
+  title: "Example resource (placeholder)",
+  url: "https://example.com",
+};
+
 export const courses = [
   {
-    id: 'web-advanced',
-    title: 'Advanced Web Development',
+    id: "web-advanced",
+    title: "Advanced Web Development",
     description:
-      'Build modern web applications with React, React Router and Vite, including configuration, production builds and deployment.',
-    level: 'Expert',
+      "Build modern web applications with React, React Router and Vite, including configuration, production builds and deployment.",
+    level: "Expert",
     estimatedMinutes: 480,
-    objective: 'Build and deploy a multi-page React application.',
-    prerequisites: 'Basic knowledge of JavaScript and React.',
+    objective: "Build and deploy a multi-page React application.",
+    prerequisites: "Basic knowledge of JavaScript and React.",
     modules: [
       {
-        id: 'web-advanced-react',
-        title: 'Advanced React',
+        id: "web-advanced-react",
+        title: "Advanced React",
         learningObjectives: [
-          'Compose reusable components for larger applications.',
-          'Choose appropriate patterns for sharing and updating state.',
+          "Compose reusable components for larger applications.",
+          "Choose appropriate patterns for sharing and updating state.",
         ],
         lessons: [
-          { id: 'web-advanced-component-composition', title: 'Component composition' },
-          { id: 'web-advanced-state-patterns', title: 'State and component patterns' },
+          createLesson(
+            "web-advanced-component-composition",
+            "Component composition",
+            {
+              explanation:
+                "Dummy content: Components can be combined to build larger interfaces. A parent component can place smaller components inside it and pass data through props.",
+              codeExample: {
+                language: "jsx",
+                code: `function CourseCard({ title, children }) {
+  return (
+    <article>
+      <h2>{title}</h2>
+      {children}
+    </article>
+  );
+}`,
+              },
+              practiceActivity:
+                "Dummy activity: Create a CourseCard component that displays a title and content passed in through props.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "web-advanced-state-patterns",
+            "State and component patterns",
+          ),
         ],
       },
       {
-        id: 'web-advanced-routing-vite',
-        title: 'Routing and Vite',
+        id: "web-advanced-routing-vite",
+        title: "Routing and Vite",
         learningObjectives: [
-          'Build multi-page experiences with React Router.',
-          'Configure, build and deploy a React application with Vite.',
+          "Build multi-page experiences with React Router.",
+          "Configure, build and deploy a React application with Vite.",
         ],
         lessons: [
-          { id: 'web-advanced-react-router', title: 'Routing with React Router' },
-          { id: 'web-advanced-vite-deployment', title: 'Vite production builds and deployment' },
+          createLesson(
+            "web-advanced-react-router",
+            "Routing with React Router",
+          ),
+          createLesson(
+            "web-advanced-vite-deployment",
+            "Vite production builds and deployment",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'ai-beginner',
-    title: 'AI for Beginners with Python',
+    id: "ai-beginner",
+    title: "AI for Beginners with Python",
     description:
-      'Learn Python fundamentals and explore basic AI concepts, data and simple models.',
-    level: 'Beginner',
+      "Learn Python fundamentals and explore basic AI concepts, data and simple models.",
+    level: "Beginner",
     estimatedMinutes: 360,
-    objective: 'Write basic Python programs and explain how simple AI models use data.',
-    prerequisites: 'No prior programming experience required.',
+    objective:
+      "Write basic Python programs and explain how simple AI models use data.",
+    prerequisites: "No prior programming experience required.",
     modules: [
       {
-        id: 'ai-beginner-python',
-        title: 'Python Foundations',
+        id: "ai-beginner-python",
+        title: "Python Foundations",
         learningObjectives: [
-          'Use variables and basic data types in Python.',
-          'Control program flow with conditions, loops and functions.',
+          "Use variables and basic data types in Python.",
+          "Control program flow with conditions, loops and functions.",
         ],
         lessons: [
-          { id: 'ai-beginner-python-values', title: 'Variables and data types' },
-          { id: 'ai-beginner-python-control-flow', title: 'Conditions, loops and functions' },
+          createLesson(
+            "ai-beginner-python-values",
+            "Variables and data types",
+            {
+              explanation:
+                "Dummy content: A variable gives a name to a value. Python can work with different types of values, such as text and numbers.",
+              codeExample: {
+                language: "python",
+                code: `name = "Alex"
+age = 25
+
+print(name)
+print(age)`,
+              },
+              practiceActivity:
+                "Dummy activity: Create variables for a learner's name and course, then print a short introduction.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "ai-beginner-python-control-flow",
+            "Conditions, loops and functions",
+          ),
         ],
       },
       {
-        id: 'ai-beginner-ai',
-        title: 'Introduction to AI',
+        id: "ai-beginner-ai",
+        title: "Introduction to AI",
         learningObjectives: [
-          'Describe common AI concepts and uses.',
-          'Explain how data can be used by a simple model.',
+          "Describe common AI concepts and uses.",
+          "Explain how data can be used by a simple model.",
         ],
         lessons: [
-          { id: 'ai-beginner-ai-concepts', title: 'What is artificial intelligence?' },
-          { id: 'ai-beginner-ai-data', title: 'Data and simple models' },
+          createLesson(
+            "ai-beginner-ai-concepts",
+            "What is artificial intelligence?",
+          ),
+          createLesson(
+            "ai-beginner-ai-data",
+            "Data and simple models",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'csharp-beginner',
-    title: 'C# for Beginners',
+    id: "csharp-beginner",
+    title: "C# for Beginners",
     description:
-      'Learn variables, data types, conditions, loops, classes and collections in C#.',
-    level: 'Beginner',
+      "Learn variables, data types, conditions, loops, classes and collections in C#.",
+    level: "Beginner",
     estimatedMinutes: 420,
-    objective: 'Write small C# programs using core language features and objects.',
-    prerequisites: 'No prior C# experience required.',
+    objective:
+      "Write small C# programs using core language features and objects.",
+    prerequisites: "No prior C# experience required.",
     modules: [
       {
-        id: 'csharp-beginner-fundamentals',
-        title: 'C# Fundamentals',
+        id: "csharp-beginner-fundamentals",
+        title: "C# Fundamentals",
         learningObjectives: [
-          'Declare variables and work with common data types.',
-          'Use conditions and loops to control program flow.',
+          "Declare variables and work with common data types.",
+          "Use conditions and loops to control program flow.",
         ],
         lessons: [
-          { id: 'csharp-beginner-data-types', title: 'Variables and data types' },
-          { id: 'csharp-beginner-control-flow', title: 'Conditions and loops' },
+          createLesson(
+            "csharp-beginner-data-types",
+            "Variables and data types",
+            {
+              explanation:
+                "Dummy content: A variable stores a value that a program can use. In C#, the type tells the program what kind of value is stored.",
+              codeExample: {
+                language: "csharp",
+                code: `string name = "Alex";
+int age = 25;
+
+Console.WriteLine(name);
+Console.WriteLine(age);`,
+              },
+              practiceActivity:
+                "Dummy activity: Create variables for a course title and its duration, then print both values.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "csharp-beginner-control-flow",
+            "Conditions and loops",
+          ),
         ],
       },
       {
-        id: 'csharp-beginner-methods-objects',
-        title: 'Methods and Objects',
+        id: "csharp-beginner-methods-objects",
+        title: "Methods and Objects",
         learningObjectives: [
-          'Organize code into methods with parameters and return values.',
-          'Create classes and use objects in a program.',
+          "Organize code into methods with parameters and return values.",
+          "Create classes and use objects in a program.",
         ],
         lessons: [
-          { id: 'csharp-beginner-methods', title: 'Methods and parameters' },
-          { id: 'csharp-beginner-classes', title: 'Classes and objects' },
+          createLesson(
+            "csharp-beginner-methods",
+            "Methods and parameters",
+          ),
+          createLesson(
+            "csharp-beginner-classes",
+            "Classes and objects",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'csharp-expert',
-    title: 'Advanced C#',
+    id: "csharp-expert",
+    title: "Advanced C#",
     description:
-        'Explore LINQ, asynchronous programming, error handling and unit testing.',
-    level: 'Expert',
+      "Explore LINQ, asynchronous programming, error handling and unit testing.",
+    level: "Expert",
     estimatedMinutes: 540,
-    objective: 'Build more robust C# applications using LINQ, async programming and tests.',
-    prerequisites: 'Experience with C#, classes, collections and methods.',
+    objective:
+      "Build more robust C# applications using LINQ, async programming and tests.",
+    prerequisites:
+      "Experience with C#, classes, collections and methods.",
     modules: [
       {
-        id: 'csharp-expert-linq',
-        title: 'LINQ and Data Processing',
+        id: "csharp-expert-linq",
+        title: "LINQ and Data Processing",
         learningObjectives: [
-          'Filter and transform collections with LINQ.',
-          'Compose queries that group and order data.',
+          "Filter and transform collections with LINQ.",
+          "Compose queries that group and order data.",
         ],
         lessons: [
-          { id: 'csharp-expert-linq-filtering', title: 'Filtering and projecting data with LINQ' },
-          { id: 'csharp-expert-linq-grouping', title: 'Grouping and ordering query results' },
+          createLesson(
+            "csharp-expert-linq-filtering",
+            "Filtering and projecting data with LINQ",
+            {
+              explanation:
+                "Dummy content: LINQ lets you query collections in a readable way. A query can select only the items that match a condition.",
+              codeExample: {
+                language: "csharp",
+                code: `var passingScores = scores
+    .Where(score => score >= 60)
+    .ToList();`,
+              },
+              practiceActivity:
+                "Dummy activity: Use LINQ to select all course scores that are at least 70.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "csharp-expert-linq-grouping",
+            "Grouping and ordering query results",
+          ),
         ],
       },
       {
-        id: 'csharp-expert-async-quality',
-        title: 'Asynchronous Programming and Quality',
+        id: "csharp-expert-async-quality",
+        title: "Asynchronous Programming and Quality",
         learningObjectives: [
-          'Use async and await to write asynchronous code.',
-          'Handle errors and verify behavior with unit tests.',
+          "Use async and await to write asynchronous code.",
+          "Handle errors and verify behavior with unit tests.",
         ],
         lessons: [
-          { id: 'csharp-expert-async-await', title: 'Tasks, async and await' },
-          { id: 'csharp-expert-testing-errors', title: 'Unit testing and error handling' },
+          createLesson(
+            "csharp-expert-async-await",
+            "Tasks, async and await",
+          ),
+          createLesson(
+            "csharp-expert-testing-errors",
+            "Unit testing and error handling",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'cpp-beginner',
-    title: 'C++ for Beginners',
+    id: "cpp-beginner",
+    title: "C++ for Beginners",
     description:
-      'Get started with program structure, variables, conditions, loops and functions.',
-    level: 'Beginner',
+      "Get started with program structure, variables, conditions, loops and functions.",
+    level: "Beginner",
     estimatedMinutes: 360,
-    objective: 'Write small C++ programs using basic syntax, functions and collections.',
-    prerequisites: 'No prior C++ experience required.',
+    objective:
+      "Write small C++ programs using basic syntax, functions and collections.",
+    prerequisites: "No prior C++ experience required.",
     modules: [
       {
-        id: 'cpp-beginner-syntax',
-        title: 'Program Structure and Syntax',
+        id: "cpp-beginner-syntax",
+        title: "Program Structure and Syntax",
         learningObjectives: [
-          'Understand the structure of a basic C++ program.',
-          'Declare variables and use common data types.',
+          "Understand the structure of a basic C++ program.",
+          "Declare variables and use common data types.",
         ],
         lessons: [
-          { id: 'cpp-beginner-program-structure', title: 'Program structure and syntax' },
-          { id: 'cpp-beginner-variables', title: 'Variables and data types' },
+          createLesson(
+            "cpp-beginner-program-structure",
+            "Program structure and syntax",
+            {
+              explanation:
+                "Dummy content: A C++ program starts by including any needed libraries. The main function is where the program begins running.",
+              codeExample: {
+                language: "cpp",
+                code: `#include <iostream>
+
+int main() {
+    std::cout << "Hello, world!";
+    return 0;
+}`,
+              },
+              practiceActivity:
+                "Dummy activity: Change the program so it prints the name of your course.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "cpp-beginner-variables",
+            "Variables and data types",
+          ),
         ],
       },
       {
-        id: 'cpp-beginner-control-functions',
-        title: 'Control Flow and Functions',
+        id: "cpp-beginner-control-functions",
+        title: "Control Flow and Functions",
         learningObjectives: [
-          'Use conditions and loops to control program flow.',
-          'Create and call functions to organize code.',
+          "Use conditions and loops to control program flow.",
+          "Create and call functions to organize code.",
         ],
         lessons: [
-          { id: 'cpp-beginner-control-flow', title: 'Conditions and loops' },
-          { id: 'cpp-beginner-functions', title: 'Functions and parameters' },
+          createLesson(
+            "cpp-beginner-control-flow",
+            "Conditions and loops",
+          ),
+          createLesson(
+            "cpp-beginner-functions",
+            "Functions and parameters",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'cloud-beginner',
-    title: 'Cloud Computing Fundamentals',
+    id: "cloud-beginner",
+    title: "Cloud Computing Fundamentals",
     description:
-      'Understand cloud service models, platforms, application deployment and basic security.',
-    level: 'Beginner',
+      "Understand cloud service models, platforms, application deployment and basic security.",
+    level: "Beginner",
     estimatedMinutes: 300,
-    objective: 'Explain core cloud concepts and describe a basic cloud deployment.',
-    prerequisites: 'Basic computer and internet knowledge.',
+    objective:
+      "Explain core cloud concepts and describe a basic cloud deployment.",
+    prerequisites: "Basic computer and internet knowledge.",
     modules: [
       {
-        id: 'cloud-beginner-concepts',
-        title: 'Cloud Concepts',
+        id: "cloud-beginner-concepts",
+        title: "Cloud Concepts",
         learningObjectives: [
-          'Compare common cloud service models.',
-          'Describe cloud platforms, regions and availability zones.',
+          "Compare common cloud service models.",
+          "Describe cloud platforms, regions and availability zones.",
         ],
         lessons: [
-          { id: 'cloud-beginner-service-models', title: 'Cloud service models' },
-          { id: 'cloud-beginner-platforms', title: 'Cloud platforms and regions' },
+          createLesson(
+            "cloud-beginner-service-models",
+            "Cloud service models",
+            {
+              explanation:
+                "Dummy content: Cloud services are often grouped into IaaS, PaaS and SaaS. These models offer different levels of control over infrastructure and software.",
+              codeExample: null,
+              practiceActivity:
+                "Dummy activity: Choose a familiar online service and decide whether it is best described as SaaS, PaaS or IaaS.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "cloud-beginner-platforms",
+            "Cloud platforms and regions",
+          ),
         ],
       },
       {
-        id: 'cloud-beginner-deployment',
-        title: 'Deployment and Security',
+        id: "cloud-beginner-deployment",
+        title: "Deployment and Security",
         learningObjectives: [
-          'Outline the steps for deploying an application to the cloud.',
-          'Recognize basic cloud security practices.',
+          "Outline the steps for deploying an application to the cloud.",
+          "Recognize basic cloud security practices.",
         ],
         lessons: [
-          { id: 'cloud-beginner-deploy', title: 'Deploying an application' },
-          { id: 'cloud-beginner-security', title: 'Identity, access and basic cloud security' },
+          createLesson(
+            "cloud-beginner-deploy",
+            "Deploying an application",
+          ),
+          createLesson(
+            "cloud-beginner-security",
+            "Identity, access and basic cloud security",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'kubernetes-beginner',
-    title: 'Kubernetes Fundamentals',
+    id: "kubernetes-beginner",
+    title: "Kubernetes Fundamentals",
     description:
-      'Learn about clusters, nodes, pods, deployments, services and basic configuration.',
-    level: 'Beginner',
+      "Learn about clusters, nodes, pods, deployments, services and basic configuration.",
+    level: "Beginner",
     estimatedMinutes: 360,
-    objective: 'Describe Kubernetes building blocks and deploy a basic application.',
-    prerequisites: 'Basic command-line and container concepts are helpful.',
+    objective:
+      "Describe Kubernetes building blocks and deploy a basic application.",
+    prerequisites:
+      "Basic command-line and container concepts are helpful.",
     modules: [
       {
-        id: 'kubernetes-beginner-cluster',
-        title: 'Clusters, Nodes and Pods',
+        id: "kubernetes-beginner-cluster",
+        title: "Clusters, Nodes and Pods",
         learningObjectives: [
-          'Describe the purpose of a Kubernetes cluster and its nodes.',
-          'Explain how pods run containerized workloads.',
+          "Describe the purpose of a Kubernetes cluster and its nodes.",
+          "Explain how pods run containerized workloads.",
         ],
         lessons: [
-          { id: 'kubernetes-beginner-clusters', title: 'Clusters and nodes' },
-          { id: 'kubernetes-beginner-pods', title: 'Containers and pods' },
+          createLesson(
+            "kubernetes-beginner-clusters",
+            "Clusters and nodes",
+            {
+              explanation:
+                "Dummy content: A Kubernetes cluster coordinates the machines that run applications. Nodes provide the compute resources for those workloads.",
+              codeExample: {
+                language: "bash",
+                code: "kubectl get nodes",
+              },
+              practiceActivity:
+                "Dummy activity: Run the command in a Kubernetes environment and identify the nodes listed.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "kubernetes-beginner-pods",
+            "Containers and pods",
+          ),
         ],
       },
       {
-        id: 'kubernetes-beginner-workloads',
-        title: 'Deployments and Services',
+        id: "kubernetes-beginner-workloads",
+        title: "Deployments and Services",
         learningObjectives: [
-          'Use a deployment to manage an application workload.',
-          'Explain how a service makes an application available.',
+          "Use a deployment to manage an application workload.",
+          "Explain how a service makes an application available.",
         ],
         lessons: [
-          { id: 'kubernetes-beginner-deployments', title: 'Deployments and replicas' },
-          { id: 'kubernetes-beginner-services', title: 'Services and application access' },
+          createLesson(
+            "kubernetes-beginner-deployments",
+            "Deployments and replicas",
+          ),
+          createLesson(
+            "kubernetes-beginner-services",
+            "Services and application access",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'kubernetes-intermediate',
-    title: 'Kubernetes Application Delivery',
+    id: "kubernetes-intermediate",
+    title: "Kubernetes Application Delivery",
     description:
-      'Package and configure applications with Helm, manage environments and use Kubernetes in a CI/CD pipeline.',
-    level: 'Intermediate',
+      "Package and configure applications with Helm, manage environments and use Kubernetes in a CI/CD pipeline.",
+    level: "Intermediate",
     estimatedMinutes: 480,
-    objective: 'Package and deliver applications across Kubernetes environments.',
-    prerequisites: 'Basic Kubernetes knowledge, including pods, deployments and services.',
+    objective:
+      "Package and deliver applications across Kubernetes environments.",
+    prerequisites:
+      "Basic Kubernetes knowledge, including pods, deployments and services.",
     modules: [
       {
-        id: 'kubernetes-intermediate-helm',
-        title: 'Helm and Application Configuration',
+        id: "kubernetes-intermediate-helm",
+        title: "Helm and Application Configuration",
         learningObjectives: [
-          'Structure an application as a Helm chart.',
-          'Configure chart values for different environments.',
+          "Structure an application as a Helm chart.",
+          "Configure chart values for different environments.",
         ],
         lessons: [
-          { id: 'kubernetes-intermediate-charts', title: 'Helm charts and templates' },
-          { id: 'kubernetes-intermediate-values', title: 'Values and environment configuration' },
+          createLesson(
+            "kubernetes-intermediate-charts",
+            "Helm charts and templates",
+            {
+              explanation:
+                "Dummy content: A Helm chart packages Kubernetes configuration so it can be reused and installed consistently.",
+              codeExample: {
+                language: "yaml",
+                code: `apiVersion: v2
+name: sample-app
+description: A placeholder Helm chart
+version: 0.1.0`,
+              },
+              practiceActivity:
+                "Dummy activity: Identify the chart name and version in the sample Chart.yaml content.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "kubernetes-intermediate-values",
+            "Values and environment configuration",
+          ),
         ],
       },
       {
-        id: 'kubernetes-intermediate-cicd',
-        title: 'CI/CD and Release Delivery',
+        id: "kubernetes-intermediate-cicd",
+        title: "CI/CD and Release Delivery",
         learningObjectives: [
-          'Describe how a CI/CD pipeline can deploy to Kubernetes.',
-          'Promote and roll back application releases safely.',
+          "Describe how a CI/CD pipeline can deploy to Kubernetes.",
+          "Promote and roll back application releases safely.",
         ],
         lessons: [
-          { id: 'kubernetes-intermediate-pipeline', title: 'Building a Kubernetes delivery pipeline' },
-          { id: 'kubernetes-intermediate-releases', title: 'Release promotion and rollback' },
+          createLesson(
+            "kubernetes-intermediate-pipeline",
+            "Building a Kubernetes delivery pipeline",
+          ),
+          createLesson(
+            "kubernetes-intermediate-releases",
+            "Release promotion and rollback",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'kubernetes-expert',
-    title: 'Kubernetes Production Operations',
+    id: "kubernetes-expert",
+    title: "Kubernetes Production Operations",
     description:
-      'Work with workload security, RBAC, network policies, observability and scaling.',
-    level: 'Expert',
+      "Work with workload security, RBAC, network policies, observability and scaling.",
+    level: "Expert",
     estimatedMinutes: 600,
-    objective: 'Operate Kubernetes workloads with stronger security, visibility and resilience.',
-    prerequisites: 'Solid Kubernetes administration and production operations experience.',
+    objective:
+      "Operate Kubernetes workloads with stronger security, visibility and resilience.",
+    prerequisites:
+      "Solid Kubernetes administration and production operations experience.",
     modules: [
       {
-        id: 'kubernetes-expert-security',
-        title: 'Security and Network Policies',
+        id: "kubernetes-expert-security",
+        title: "Security and Network Policies",
         learningObjectives: [
-          'Apply role-based access control to cluster resources.',
-          'Use security settings and network policies to limit workload access.',
+          "Apply role-based access control to cluster resources.",
+          "Use security settings and network policies to limit workload access.",
         ],
         lessons: [
-          { id: 'kubernetes-expert-rbac', title: 'RBAC and service accounts' },
-          { id: 'kubernetes-expert-network-policies', title: 'Workload security and network policies' },
+          createLesson(
+            "kubernetes-expert-rbac",
+            "RBAC and service accounts",
+            {
+              explanation:
+                "Dummy content: Role-based access control (RBAC) assigns permissions to users or service accounts through roles and role bindings.",
+              codeExample: {
+                language: "yaml",
+                code: `kind: Role
+metadata:
+  name: read-pods
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]`,
+              },
+              practiceActivity:
+                "Dummy activity: Find which resource and actions the sample role allows.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "kubernetes-expert-network-policies",
+            "Workload security and network policies",
+          ),
         ],
       },
       {
-        id: 'kubernetes-expert-observability',
-        title: 'Observability and Scaling',
+        id: "kubernetes-expert-observability",
+        title: "Observability and Scaling",
         learningObjectives: [
-          'Use metrics and logs to investigate workload health.',
-          'Choose scaling approaches for production workloads.',
+          "Use metrics and logs to investigate workload health.",
+          "Choose scaling approaches for production workloads.",
         ],
         lessons: [
-          { id: 'kubernetes-expert-observability', title: 'Metrics, logs and workload health' },
-          { id: 'kubernetes-expert-scaling', title: 'Autoscaling and capacity planning' },
+          createLesson(
+            "kubernetes-expert-observability",
+            "Metrics, logs and workload health",
+          ),
+          createLesson(
+            "kubernetes-expert-scaling",
+            "Autoscaling and capacity planning",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'rust-beginner',
-    title: 'Rust Fundamentals',
+    id: "rust-beginner",
+    title: "Rust Fundamentals",
     description:
-      'Learn Rust syntax, functions, ownership, borrowing, structs and enums.',
-    level: 'Beginner',
+      "Learn Rust syntax, functions, ownership, borrowing, structs and enums.",
+    level: "Beginner",
     estimatedMinutes: 420,
-    objective: 'Write small Rust programs and understand ownership and borrowing.',
-    prerequisites: 'Basic programming concepts are helpful, but prior Rust experience is not required.',
+    objective:
+      "Write small Rust programs and understand ownership and borrowing.",
+    prerequisites:
+      "Basic programming concepts are helpful, but prior Rust experience is not required.",
     modules: [
       {
-        id: 'rust-beginner-syntax',
-        title: 'Rust Syntax and Functions',
+        id: "rust-beginner-syntax",
+        title: "Rust Syntax and Functions",
         learningObjectives: [
-          'Write Rust statements and declare variables.',
-          'Create functions with parameters and return values.',
+          "Write Rust statements and declare variables.",
+          "Create functions with parameters and return values.",
         ],
         lessons: [
-          { id: 'rust-beginner-variables', title: 'Variables, mutability and data types' },
-          { id: 'rust-beginner-functions', title: 'Functions and control flow' },
+          createLesson(
+            "rust-beginner-variables",
+            "Variables, mutability and data types",
+            {
+              explanation:
+                "Dummy content: Rust variables are immutable by default. Use `mut` when a value needs to change.",
+              codeExample: {
+                language: "rust",
+                code: `let course = "Rust";
+let mut progress = 0;
+progress += 1;
+
+println!("{course}: {progress}");`,
+              },
+              practiceActivity:
+                "Dummy activity: Create an immutable course name and a mutable lesson counter.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "rust-beginner-functions",
+            "Functions and control flow",
+          ),
         ],
       },
       {
-        id: 'rust-beginner-ownership',
-        title: 'Ownership and Data Structures',
+        id: "rust-beginner-ownership",
+        title: "Ownership and Data Structures",
         learningObjectives: [
-          'Explain ownership and borrowing in Rust.',
-          'Represent structured data with structs and enums.',
+          "Explain ownership and borrowing in Rust.",
+          "Represent structured data with structs and enums.",
         ],
         lessons: [
-          { id: 'rust-beginner-ownership-borrowing', title: 'Ownership and borrowing' },
-          { id: 'rust-beginner-structs-enums', title: 'Structs and enums' },
+          createLesson(
+            "rust-beginner-ownership-borrowing",
+            "Ownership and borrowing",
+          ),
+          createLesson(
+            "rust-beginner-structs-enums",
+            "Structs and enums",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'rust-intermediate',
-    title: 'Intermediate Rust',
+    id: "rust-intermediate",
+    title: "Intermediate Rust",
     description:
-      'Use traits, generics, iterators, closures and Rust’s error-handling patterns.',
-    level: 'Intermediate',
+      "Use traits, generics, iterators, closures and Rust’s error-handling patterns.",
+    level: "Intermediate",
     estimatedMinutes: 480,
-    objective: 'Use Rust abstractions and standard library tools to write idiomatic programs.',
-    prerequisites: 'Comfort with Rust syntax, ownership, borrowing, structs and enums.',
+    objective:
+      "Use Rust abstractions and standard library tools to write idiomatic programs.",
+    prerequisites:
+      "Comfort with Rust syntax, ownership, borrowing, structs and enums.",
     modules: [
       {
-        id: 'rust-intermediate-abstractions',
-        title: 'Traits and Generics',
+        id: "rust-intermediate-abstractions",
+        title: "Traits and Generics",
         learningObjectives: [
-          'Define and implement traits for shared behavior.',
-          'Write generic functions and data structures.',
+          "Define and implement traits for shared behavior.",
+          "Write generic functions and data structures.",
         ],
         lessons: [
-          { id: 'rust-intermediate-traits', title: 'Traits and trait implementations' },
-          { id: 'rust-intermediate-generics', title: 'Generics and bounds' },
+          createLesson(
+            "rust-intermediate-traits",
+            "Traits and trait implementations",
+            {
+              explanation:
+                "Dummy content: A trait describes behavior that different types can implement.",
+              codeExample: {
+                language: "rust",
+                code: `trait Describe {
+    fn describe(&self) -> String;
+}`,
+              },
+              practiceActivity:
+                "Dummy activity: Add a `Describe` implementation for a simple struct.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "rust-intermediate-generics",
+            "Generics and bounds",
+          ),
         ],
       },
       {
-        id: 'rust-intermediate-idioms',
-        title: 'Iterators, Closures and Errors',
+        id: "rust-intermediate-idioms",
+        title: "Iterators, Closures and Errors",
         learningObjectives: [
-          'Transform collections using iterators and closures.',
-          'Handle recoverable errors with Rust’s result types.',
+          "Transform collections using iterators and closures.",
+          "Handle recoverable errors with Rust’s result types.",
         ],
         lessons: [
-          { id: 'rust-intermediate-iterators', title: 'Iterators and closures' },
-          { id: 'rust-intermediate-errors', title: 'Option, Result and error handling' },
+          createLesson(
+            "rust-intermediate-iterators",
+            "Iterators and closures",
+          ),
+          createLesson(
+            "rust-intermediate-errors",
+            "Option, Result and error handling",
+          ),
         ],
       },
     ],
   },
   {
-    id: 'rust-expert',
-    title: 'Advanced Rust Systems Programming',
+    id: "rust-expert",
+    title: "Advanced Rust Systems Programming",
     description:
-      'Explore concurrency, asynchronous Rust, unsafe code and performance profiling.',
-    level: 'Expert',
+      "Explore concurrency, asynchronous Rust, unsafe code and performance profiling.",
+    level: "Expert",
     estimatedMinutes: 600,
-    objective: 'Build and analyze systems software using advanced Rust capabilities.',
-    prerequisites: 'Strong Rust experience, including traits, generics, ownership and error handling.',
+    objective:
+      "Build and analyze systems software using advanced Rust capabilities.",
+    prerequisites:
+      "Strong Rust experience, including traits, generics, ownership and error handling.",
     modules: [
       {
-        id: 'rust-expert-concurrency',
-        title: 'Concurrency and Async Rust',
+        id: "rust-expert-concurrency",
+        title: "Concurrency and Async Rust",
         learningObjectives: [
-          'Coordinate concurrent work using threads and message passing.',
-          'Build asynchronous workflows with Rust futures.',
+          "Coordinate concurrent work using threads and message passing.",
+          "Build asynchronous workflows with Rust futures.",
         ],
         lessons: [
-          { id: 'rust-expert-threads', title: 'Threads, shared state and channels' },
-          { id: 'rust-expert-async', title: 'Async Rust and futures' },
+          createLesson(
+            "rust-expert-threads",
+            "Threads, shared state and channels",
+            {
+              explanation:
+                "Dummy content: Threads allow work to run concurrently. Message passing can help threads communicate without directly sharing mutable data.",
+              codeExample: {
+                language: "rust",
+                code: `use std::thread;
+
+let handle = thread::spawn(|| {
+    println!("Running in another thread");
+});
+
+handle.join().unwrap();`,
+              },
+              practiceActivity:
+                "Dummy activity: Identify where the new thread starts and where the main thread waits for it.",
+              resources: [placeholderResource],
+            },
+          ),
+          createLesson(
+            "rust-expert-async",
+            "Async Rust and futures",
+          ),
         ],
       },
       {
-        id: 'rust-expert-systems',
-        title: 'Unsafe Rust and Performance',
+        id: "rust-expert-systems",
+        title: "Unsafe Rust and Performance",
         learningObjectives: [
-          'Explain when unsafe Rust may be needed and how to isolate it.',
-          'Measure and investigate performance bottlenecks.',
+          "Explain when unsafe Rust may be needed and how to isolate it.",
+          "Measure and investigate performance bottlenecks.",
         ],
         lessons: [
-          { id: 'rust-expert-unsafe', title: 'Unsafe Rust and safety boundaries' },
-          { id: 'rust-expert-profiling', title: 'Performance profiling and optimization' },
+          createLesson(
+            "rust-expert-unsafe",
+            "Unsafe Rust and safety boundaries",
+          ),
+          createLesson(
+            "rust-expert-profiling",
+            "Performance profiling and optimization",
+          ),
         ],
       },
     ],

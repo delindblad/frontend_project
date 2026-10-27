@@ -41,6 +41,11 @@ function NavBar() {
               Courses
             </Nav.Link>
 
+            <Nav.Link as={NavLink} to="/lessons">
+              <FontAwesomeIcon icon={faLeanpub} />
+              Lessons
+            </Nav.Link>
+
             <Nav.Link as={NavLink} to="/schedule">
               <FontAwesomeIcon icon={faRectangleList} />
               Schedule
