@@ -9,6 +9,7 @@ import { currentCourses } from "./data/schedule.js";
 // Keep lazy declarations outside App to preserve component identity.
 const MyLearning = lazy(() => import("./MyLearning.jsx"));
 const Courses = lazy(() => import("./Courses.jsx"));
+const Lessons = lazy(() => import("./Lessons.jsx"));
 const CourseDetails = lazy(() => import("./CourseDetails.jsx"));
 const Schedule = lazy(() => import("./Schedule.jsx"));
 const CourseQuiz = lazy(() => import("./quizzes/CourseQuiz.jsx"));
@@ -32,6 +33,8 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/courses" element={<Courses />} />
+
+          <Route path="/lessons" element={<Lessons />} />
 
           <Route path="/mylearning" element={<MyLearning />} />
 
