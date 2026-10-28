@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.courses-page {
+    font-family: 'Roboto', sans-serif;
+}
+
+.my-card {
+    width: 60%; 
+    justify-self: center; 
+    margin: 1%;
+    height: 200px;
+    align-content: center;
+    background-color: #294d73;
+    max-width: 700px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.my-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-card .card-title {
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.my-card .card-text {
+    color: #c2d0df;
+    font-size: 1rem; 
+}
+
+.my-card .course-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.course-level {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #bdbdbd;
+    margin-top: auto;
+    font-size: 0.750rem;
+    line-height: 1;
+}
+
+.course-level-logo {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+}

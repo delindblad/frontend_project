@@ -103,7 +103,7 @@ function CourseDetails() {
                   {firstLesson && (
                     <Button
                       as={Link}
-                      to={`/courses/${course.id}/modules/${selectedModule.id}/lessons/${firstLesson.id}`}
+                      to={`/lessons/${course.id}/modules/${selectedModule.id}/lessons/${firstLesson.id}`}
                     >
                       Start module
                     </Button>
