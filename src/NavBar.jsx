@@ -73,12 +73,7 @@ function NavBar() {
               Sign out
             </Nav.Link> : ''}
                                    {/* Preserve the dropdown items from master. */}
- 
 
-            <Nav.Link as={NavLink} to="/help">
-              <FontAwesomeIcon icon={faCircleInfo} />
-              Help
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

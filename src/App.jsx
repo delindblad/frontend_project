@@ -2,14 +2,12 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
 import NavBar from "./NavBar.jsx";
-import Schedule from "./Schedule.jsx";
-import CookieModal from "./CookieModal.jsx";
 import Footer from "./Footer.jsx";
 import Login from "./Login.jsx";
 import Messages from "./Messages.jsx";
 import LoggedOut from "./LoggedOut.jsx";
 import { currentCourses } from "./data/schedule.js";
-import LoginComponent from "./LoginComponent.jsx";
+
 
 // Load these pages only when they are first opened.
 // Keep lazy declarations outside App to preserve component identity.
@@ -38,7 +36,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/courses" element={localStorage.getItem('loggedIn') === 'true' ? <Courses /> : <Login /> } />
-                <Route path="/lessons" element={<Lessons />} />
+                <Route path="/lessons" element={localStorage.getItem('loggedIn') === 'true' ? <Lessons /> : <Login /> } />
                 <Route path="/mylearning" element={localStorage.getItem('loggedIn') === 'true' ? <MyLearning /> : <Login /> } />
                 <Route
                     path="/courses/:courseId"
