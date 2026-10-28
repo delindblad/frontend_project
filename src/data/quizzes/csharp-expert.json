@@ -5,17 +5,17 @@
       "id": "csharp-expert-filter",
       "question": "Which LINQ method filters a sequence to include only elements that satisfy a condition?",
       "options": [
-        { "id": "a", "text": "Select()" },
-        { "id": "b", "text": "OrderBy()" },
-        { "id": "c", "text": "Where()" },
-        { "id": "d", "text": "GroupBy()" }
+        { "id": "a", "text": "`Select()`" },
+        { "id": "b", "text": "`OrderBy()`" },
+        { "id": "c", "text": "`Where()`" },
+        { "id": "d", "text": "`GroupBy()`" }
       ],
       "correctAnswerId": "c",
-      "explanation": "Where filters a sequence using a condition. For example, numbers.Where(n => n > 10) selects only numbers greater than 10."
+      "explanation": "`Where` filters a sequence using a condition. For example, the following expression selects only numbers greater than 10:\n\n```csharp\nnumbers.Where(n => n > 10)\n```"
     },
     {
       "id": "csharp-expert-projection",
-      "question": "What values does this LINQ query produce when enumerated?\n\nint[] numbers = { 1, 2, 3 };\nvar result = numbers.Select(n => n * 2);",
+      "question": "What values does this LINQ query produce when enumerated?\n\n```csharp\nint[] numbers = { 1, 2, 3 };\nvar result = numbers.Select(n => n * 2);\n```",
       "options": [
         { "id": "a", "text": "2, 4, 6" },
         { "id": "b", "text": "1, 2, 3" },
@@ -23,19 +23,31 @@
         { "id": "d", "text": "6, 4, 2" }
       ],
       "correctAnswerId": "a",
-      "explanation": "Select transforms each element. Multiplying each number by 2 produces 2, 4 and 6."
+      "explanation": "`Select` transforms each element. Multiplying each number by 2 produces 2, 4 and 6."
     },
     {
       "id": "csharp-expert-grouping",
       "question": "Which expression groups employees by department?",
       "options": [
-        { "id": "a", "text": "employees.OrderBy(e => e.Department)" },
-        { "id": "b", "text": "employees.Select(e => e.Department)" },
-        { "id": "c", "text": "employees.Where(e => e.Department == \"IT\")" },
-        { "id": "d", "text": "employees.GroupBy(e => e.Department)" }
+        {
+          "id": "a",
+          "text": "`employees.OrderBy(e => e.Department)`"
+        },
+        {
+          "id": "b",
+          "text": "`employees.Select(e => e.Department)`"
+        },
+        {
+          "id": "c",
+          "text": "`employees.Where(e => e.Department == \"IT\")`"
+        },
+        {
+          "id": "d",
+          "text": "`employees.GroupBy(e => e.Department)`"
+        }
       ],
       "correctAnswerId": "d",
-      "explanation": "GroupBy creates groups based on a key. Here, employees with the same Department value belong to the same group."
+      "explanation": "`GroupBy` creates groups based on a key. Here, employees with the same `Department` value belong to the same group."
     },
     {
       "id": "csharp-expert-ordering",
@@ -43,27 +55,27 @@
       "options": [
         {
           "id": "a",
-          "text": "employees.OrderBy(e => e.Department).OrderBy(e => e.Name)"
+          "text": "`employees.OrderBy(e => e.Department).OrderBy(e => e.Name)`"
         },
         {
           "id": "b",
-          "text": "employees.OrderBy(e => e.Department).ThenBy(e => e.Name)"
+          "text": "`employees.OrderBy(e => e.Department).ThenBy(e => e.Name)`"
         },
         {
           "id": "c",
-          "text": "employees.GroupBy(e => e.Name)"
+          "text": "`employees.GroupBy(e => e.Name)`"
         },
         {
           "id": "d",
-          "text": "employees.Select(e => e.Department)"
+          "text": "`employees.Select(e => e.Department)`"
         }
       ],
       "correctAnswerId": "b",
-      "explanation": "OrderBy defines the primary sort order. ThenBy adds a secondary sort order for elements with the same primary key."
+      "explanation": "`OrderBy` defines the primary sort order. `ThenBy` adds a secondary sort order for elements with the same primary key."
     },
     {
       "id": "csharp-expert-await",
-      "question": "What happens when await is applied to a Task that has not yet completed?",
+      "question": "What happens when `await` is applied to a `Task` that has not yet completed?",
       "options": [
         {
           "id": "a",
@@ -83,23 +95,23 @@
         }
       ],
       "correctAnswerId": "c",
-      "explanation": "Await allows an async method to suspend while a task is incomplete without blocking the current thread. Await itself does not create a new thread."
+      "explanation": "`await` allows an async method to suspend while a task is incomplete without blocking the current thread. `await` itself does not create a new thread."
     },
     {
       "id": "csharp-expert-errors",
-      "question": "How can a caller catch an exception from an async Task-returning method?",
+      "question": "How can a caller catch an exception from an async `Task`-returning method?",
       "options": [
         {
           "id": "a",
-          "text": "Await the method inside a try block with an appropriate catch block."
+          "text": "Await the method inside a `try` block with an appropriate `catch` block."
         },
         {
           "id": "b",
-          "text": "Call the method without awaiting it inside a try block."
+          "text": "Call the method without awaiting it inside a `try` block."
         },
         {
           "id": "c",
-          "text": "Use a finally block instead of a catch block."
+          "text": "Use a `finally` block instead of a `catch` block."
         },
         {
           "id": "d",
@@ -107,7 +119,7 @@
         }
       ],
       "correctAnswerId": "a",
-      "explanation": "An exception stored in a faulted Task is rethrown when the task is awaited. A surrounding try/catch can handle that exception."
+      "explanation": "An exception stored in a faulted `Task` is rethrown when the task is awaited. A surrounding `try/catch` can handle that exception."
     },
     {
       "id": "csharp-expert-testing",

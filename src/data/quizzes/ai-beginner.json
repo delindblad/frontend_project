@@ -3,7 +3,7 @@
   "questions": [
     {
       "id": "ai-beginner-variable",
-      "question": "What type of value is stored in age after this Python statement?\n\nage = 25",
+      "question": "What type of value is stored in `age` after this Python statement?\n\n```python\nage = 25\n```",
       "options": [
         { "id": "a", "text": "String" },
         { "id": "b", "text": "Integer" },
@@ -11,11 +11,11 @@
         { "id": "d", "text": "List" }
       ],
       "correctAnswerId": "b",
-      "explanation": "25 is an integer. Python assigns this integer value to the variable age without requiring an explicit type declaration."
+      "explanation": "25 is an integer. Python assigns this integer value to the variable `age` without requiring an explicit type declaration."
     },
     {
       "id": "ai-beginner-condition",
-      "question": "What does this Python code print?\n\ntemperature = 18\nif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")",
+      "question": "What does this Python code print?\n\n```python\ntemperature = 18\nif temperature > 20:\n    print(\"Warm\")\nelse:\n    print(\"Cool\")\n```",
       "options": [
         { "id": "a", "text": "Warm" },
         { "id": "b", "text": "Warm and Cool" },
@@ -23,11 +23,11 @@
         { "id": "d", "text": "Nothing" }
       ],
       "correctAnswerId": "c",
-      "explanation": "18 is not greater than 20, so the condition is false and the else branch prints Cool."
+      "explanation": "18 is not greater than 20, so the condition is false and the `else` branch prints Cool."
     },
     {
       "id": "ai-beginner-loop",
-      "question": "Which numbers does this Python loop print?\n\nfor number in range(3):\n    print(number)",
+      "question": "Which numbers does this Python loop print?\n\n```python\nfor number in range(3):\n    print(number)\n```",
       "options": [
         { "id": "a", "text": "0, 1, 2" },
         { "id": "b", "text": "1, 2, 3" },
@@ -35,11 +35,11 @@
         { "id": "d", "text": "3 only" }
       ],
       "correctAnswerId": "a",
-      "explanation": "range(3) produces 0, 1 and 2. The stop value, 3, is excluded."
+      "explanation": "`range(3)` produces 0, 1 and 2. The stop value, 3, is excluded."
     },
     {
       "id": "ai-beginner-function",
-      "question": "What value does double(4) return?\n\ndef double(number):\n    return number * 2",
+      "question": "What value does `double(4)` return?\n\n```python\ndef double(number):\n    return number * 2\n```",
       "options": [
         { "id": "a", "text": "2" },
         { "id": "b", "text": "4" },
@@ -47,7 +47,7 @@
         { "id": "d", "text": "8" }
       ],
       "correctAnswerId": "d",
-      "explanation": "The argument 4 becomes the value of number. The function returns 4 multiplied by 2, which is 8."
+      "explanation": "The argument 4 becomes the value of `number`. The function returns 4 multiplied by 2, which is 8."
     },
     {
       "id": "ai-beginner-learning",

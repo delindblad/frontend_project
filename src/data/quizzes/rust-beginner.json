@@ -3,31 +3,31 @@
   "questions": [
     {
       "id": "rust-beginner-mutability",
-      "question": "Which declaration allows count to be reassigned later?",
+      "question": "Which declaration allows `count` to be reassigned later?",
       "options": [
-        { "id": "a", "text": "let count = 0;" },
-        { "id": "b", "text": "let mut count = 0;" },
-        { "id": "c", "text": "const count: i32 = 0;" },
-        { "id": "d", "text": "let count == 0;" }
+        { "id": "a", "text": "`let count = 0;`" },
+        { "id": "b", "text": "`let mut count = 0;`" },
+        { "id": "c", "text": "`const count: i32 = 0;`" },
+        { "id": "d", "text": "`let count == 0;`" }
       ],
       "correctAnswerId": "b",
-      "explanation": "Variables declared with let are immutable by default. Adding mut allows the variable to be reassigned."
+      "explanation": "Variables declared with `let` are immutable by default. Adding `mut` allows the variable to be reassigned."
     },
     {
       "id": "rust-beginner-types",
-      "question": "Which Rust type represents either true or false?",
+      "question": "Which Rust type represents either `true` or `false`?",
       "options": [
-        { "id": "a", "text": "String" },
-        { "id": "b", "text": "i32" },
-        { "id": "c", "text": "char" },
-        { "id": "d", "text": "bool" }
+        { "id": "a", "text": "`String`" },
+        { "id": "b", "text": "`i32`" },
+        { "id": "c", "text": "`char`" },
+        { "id": "d", "text": "`bool`" }
       ],
       "correctAnswerId": "d",
-      "explanation": "The bool type has two possible values: true and false. It is commonly used in conditions."
+      "explanation": "The `bool` type has two possible values: `true` and `false`. It is commonly used in conditions."
     },
     {
       "id": "rust-beginner-function",
-      "question": "What does double(4) return?\n\nfn double(number: i32) -> i32 {\n    number * 2\n}",
+      "question": "What does `double(4)` return?\n\n```rust\nfn double(number: i32) -> i32 {\n    number * 2\n}\n```",
       "options": [
         { "id": "a", "text": "8" },
         { "id": "b", "text": "4" },
@@ -35,23 +35,23 @@
         { "id": "d", "text": "Nothing" }
       ],
       "correctAnswerId": "a",
-      "explanation": "The final expression has no semicolon, so its value is returned. With number equal to 4, the result is 8."
+      "explanation": "The final expression has no semicolon, so its value is returned. With `number` equal to 4, the result is 8."
     },
     {
       "id": "rust-beginner-control-flow",
-      "question": "What value is assigned to label?\n\nlet score = 75;\nlet label = if score >= 50 {\n    \"Pass\"\n} else {\n    \"Retry\"\n};",
+      "question": "What value is assigned to `label`?\n\n```rust\nlet score = 75;\nlet label = if score >= 50 {\n    \"Pass\"\n} else {\n    \"Retry\"\n};\n```",
       "options": [
-        { "id": "a", "text": "\"Retry\"" },
+        { "id": "a", "text": "`\"Retry\"`" },
         { "id": "b", "text": "75" },
-        { "id": "c", "text": "\"Pass\"" },
-        { "id": "d", "text": "true" }
+        { "id": "c", "text": "`\"Pass\"`" },
+        { "id": "d", "text": "`true`" }
       ],
       "correctAnswerId": "c",
-      "explanation": "An if expression can produce a value. Since 75 is greater than or equal to 50, the selected branch produces \"Pass\"."
+      "explanation": "An `if` expression can produce a value. Since 75 is greater than or equal to 50, the selected branch produces `\"Pass\"`."
     },
     {
       "id": "rust-beginner-ownership",
-      "question": "What happens in this code?\n\nlet first = String::from(\"Hello\");\nlet second = first;\nprintln!(\"{}\", first);",
+      "question": "What happens in this code?\n\n```rust\nlet first = String::from(\"Hello\");\nlet second = first;\nprintln!(\"{}\", first);\n```",
       "options": [
         {
           "id": "a",
@@ -59,7 +59,7 @@
         },
         {
           "id": "b",
-          "text": "Compilation fails because first is used after its value was moved to second."
+          "text": "Compilation fails because `first` is used after its value was moved to `second`."
         },
         {
           "id": "c",
@@ -71,15 +71,15 @@
         }
       ],
       "correctAnswerId": "b",
-      "explanation": "String does not implement Copy. Assigning first to second moves ownership, so first cannot be used afterward unless it is reinitialized."
+      "explanation": "`String` does not implement `Copy`. Assigning `first` to `second` moves ownership, so `first` cannot be used afterward unless it is reinitialized."
     },
     {
       "id": "rust-beginner-borrowing",
-      "question": "What does &name do in this call?\n\nfn show(name: &String) {\n    println!(\"{}\", name);\n}\n\nlet name = String::from(\"Meral\");\nshow(&name);",
+      "question": "What does `&name` do in this call?\n\n```rust\nfn show(name: &String) {\n    println!(\"{}\", name);\n}\n\nlet name = String::from(\"Meral\");\nshow(&name);\n```",
       "options": [
         {
           "id": "a",
-          "text": "It transfers ownership of name to show."
+          "text": "It transfers ownership of `name` to `show`."
         },
         {
           "id": "b",
@@ -87,19 +87,19 @@
         },
         {
           "id": "c",
-          "text": "It deletes the String."
+          "text": "It deletes the `String`."
         },
         {
           "id": "d",
-          "text": "It lends show an immutable reference while the caller retains ownership."
+          "text": "It lends `show` an immutable reference while the caller retains ownership."
         }
       ],
       "correctAnswerId": "d",
-      "explanation": "The & operator creates a shared, immutable reference. The function borrows the String, so the caller can still use name after the call."
+      "explanation": "The `&` operator creates a shared, immutable reference. The function borrows the `String`, so the caller can still use `name` after the call."
     },
     {
       "id": "rust-beginner-struct",
-      "question": "What is a struct commonly used for in Rust?",
+      "question": "What is a `struct` commonly used for in Rust?",
       "options": [
         {
           "id": "a",
@@ -119,19 +119,19 @@
         }
       ],
       "correctAnswerId": "a",
-      "explanation": "A struct defines a type that groups related data, such as a User with name and age fields."
+      "explanation": "A `struct` defines a type that groups related data, such as a `User` with `name` and `age` fields."
     },
     {
       "id": "rust-beginner-enum",
-      "question": "Given this definition, which expression creates the Running variant?\n\nenum Status {\n    Waiting,\n    Running,\n    Finished,\n}",
+      "question": "Given this definition, which expression creates the `Running` variant?\n\n```rust\nenum Status {\n    Waiting,\n    Running,\n    Finished,\n}\n```",
       "options": [
-        { "id": "a", "text": "Status.Running" },
-        { "id": "b", "text": "new Status(\"Running\")" },
-        { "id": "c", "text": "Status::Running" },
-        { "id": "d", "text": "Status->Running" }
+        { "id": "a", "text": "`Status.Running`" },
+        { "id": "b", "text": "`new Status(\"Running\")`" },
+        { "id": "c", "text": "`Status::Running`" },
+        { "id": "d", "text": "`Status->Running`" }
       ],
       "correctAnswerId": "c",
-      "explanation": "Enum variants are accessed using ::. Status::Running represents one of the possible variants of Status."
+      "explanation": "Enum variants are accessed using `::`. `Status::Running` represents one of the possible variants of `Status`."
     }
   ]
 }

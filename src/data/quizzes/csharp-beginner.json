@@ -5,17 +5,17 @@
       "id": "csharp-variable",
       "question": "Which declaration stores a whole number in C#?",
       "options": [
-        { "id": "a", "text": "string age = \"25\";" },
-        { "id": "b", "text": "int age = 25;" },
-        { "id": "c", "text": "bool age = true;" },
-        { "id": "d", "text": "double age = 25.5;" }
+        { "id": "a", "text": "`string age = \"25\";`" },
+        { "id": "b", "text": "`int age = 25;`" },
+        { "id": "c", "text": "`bool age = true;`" },
+        { "id": "d", "text": "`double age = 25.5;`" }
       ],
       "correctAnswerId": "b",
-      "explanation": "The int type stores whole numbers, such as 25."
+      "explanation": "The `int` type stores whole numbers, such as 25."
     },
     {
       "id": "csharp-condition",
-      "question": "What is the purpose of an if statement?",
+      "question": "What is the purpose of an `if` statement?",
       "options": [
         { "id": "a", "text": "To declare a class." },
         { "id": "b", "text": "To repeat code a fixed number of times." },
@@ -23,11 +23,11 @@
         { "id": "d", "text": "To import a namespace." }
       ],
       "correctAnswerId": "c",
-      "explanation": "An if statement executes its body when its condition evaluates to true."
+      "explanation": "An `if` statement executes its body when its condition evaluates to true."
     },
     {
       "id": "csharp-loop",
-      "question": "How many times does this loop execute its body?\n\nfor (int i = 0; i < 3; i++)",
+      "question": "How many times does this loop execute its body?\n\n```csharp\nfor (int i = 0; i < 3; i++)\n```",
       "options": [
         { "id": "a", "text": "2 times" },
         { "id": "b", "text": "4 times" },
@@ -35,31 +35,31 @@
         { "id": "d", "text": "3 times" }
       ],
       "correctAnswerId": "d",
-      "explanation": "The body executes for i = 0, 1 and 2. When i becomes 3, the condition is false."
+      "explanation": "The body executes for `i = 0`, `1` and `2`. When `i` becomes 3, the condition is false."
     },
     {
       "id": "csharp-method",
-      "question": "What does this method return when called with Add(2, 3)?\n\nint Add(int a, int b)\n{\n    return a + b;\n}",
+      "question": "What does this method return when called with `Add(2, 3)`?\n\n```csharp\nint Add(int a, int b)\n{\n    return a + b;\n}\n```",
       "options": [
         { "id": "a", "text": "5" },
         { "id": "b", "text": "23" },
         { "id": "c", "text": "Nothing" },
-        { "id": "d", "text": "true" }
+        { "id": "d", "text": "`true`" }
       ],
       "correctAnswerId": "a",
       "explanation": "The method adds its two integer parameters and returns their sum: 5."
     },
     {
       "id": "csharp-object",
-      "question": "Given a class named Car with an accessible parameterless constructor, which statement creates a Car object?",
+      "question": "Given a class named `Car` with an accessible parameterless constructor, which statement creates a `Car` object?",
       "options": [
-        { "id": "a", "text": "class Car;" },
-        { "id": "b", "text": "Car myCar = new Car();" },
-        { "id": "c", "text": "string myCar = \"Car\";" },
-        { "id": "d", "text": "Car = new myCar();" }
+        { "id": "a", "text": "`class Car;`" },
+        { "id": "b", "text": "`Car myCar = new Car();`" },
+        { "id": "c", "text": "`string myCar = \"Car\";`" },
+        { "id": "d", "text": "`Car = new myCar();`" }
       ],
       "correctAnswerId": "b",
-      "explanation": "new Car() creates an instance of Car, and myCar holds a reference to that object."
+      "explanation": "`new Car()` creates an instance of `Car`, and `myCar` holds a reference to that object."
     }
   ]
 }

@@ -15,15 +15,15 @@
     },
     {
       "id": "web-advanced-children",
-      "question": "Which prop lets a Panel component render content nested inside <Panel>...</Panel>?",
+      "question": "Which prop lets a `Panel` component render content nested inside `<Panel>...</Panel>`?",
       "options": [
-        { "id": "a", "text": "key" },
-        { "id": "b", "text": "className" },
-        { "id": "c", "text": "children" },
-        { "id": "d", "text": "value" }
+        { "id": "a", "text": "`key`" },
+        { "id": "b", "text": "`className`" },
+        { "id": "c", "text": "`children`" },
+        { "id": "d", "text": "`value`" }
       ],
       "correctAnswerId": "c",
-      "explanation": "React passes nested content through the children prop. Panel can place that content in its layout by rendering {children}."
+      "explanation": "React passes nested content through the `children` prop. `Panel` can place that content in its layout by rendering `{children}`."
     },
     {
       "id": "web-advanced-shared-state",
@@ -41,61 +41,61 @@
       "id": "web-advanced-state-update",
       "question": "Which update adds a new item to an array in React state without mutating the existing array?",
       "options": [
-        { "id": "a", "text": "setItems(previousItems => [...previousItems, newItem]);" },
-        { "id": "b", "text": "items.push(newItem);" },
-        { "id": "c", "text": "items[items.length] = newItem;" },
-        { "id": "d", "text": "setItems(items.push(newItem));" }
+        { "id": "a", "text": "`setItems(previousItems => [...previousItems, newItem]);`" },
+        { "id": "b", "text": "`items.push(newItem);`" },
+        { "id": "c", "text": "`items[items.length] = newItem;`" },
+        { "id": "d", "text": "`setItems(items.push(newItem));`" }
       ],
       "correctAnswerId": "a",
       "explanation": "The spread syntax creates a new array containing the previous items and the new item. The functional updater uses the pending state."
     },
     {
       "id": "web-advanced-route-params",
-      "question": "A route has the path /courses/:courseId. Which hook reads courseId inside the route's component?",
+      "question": "A route has the path `/courses/:courseId`. Which hook reads `courseId` inside the route's component?",
       "options": [
-        { "id": "a", "text": "useState()" },
-        { "id": "b", "text": "useParams()" },
-        { "id": "c", "text": "useEffect()" },
-        { "id": "d", "text": "useRef()" }
+        { "id": "a", "text": "`useState()`" },
+        { "id": "b", "text": "`useParams()`" },
+        { "id": "c", "text": "`useEffect()`" },
+        { "id": "d", "text": "`useRef()`" }
       ],
       "correctAnswerId": "b",
-      "explanation": "React Router's useParams hook returns the dynamic parameters matched in the URL, including courseId."
+      "explanation": "React Router's `useParams` hook returns the dynamic parameters matched in the URL, including `courseId`."
     },
     {
       "id": "web-advanced-navigation",
       "question": "Which element is intended for internal client-side navigation in a React Router application?",
       "options": [
-        { "id": "a", "text": "<button href=\"/courses\">Courses</button>" },
-        { "id": "b", "text": "<div to=\"/courses\">Courses</div>" },
-        { "id": "c", "text": "<Link to=\"/courses\">Courses</Link>" },
-        { "id": "d", "text": "<a src=\"/courses\">Courses</a>" }
+        { "id": "a", "text": "`<button href=\"/courses\">Courses</button>`" },
+        { "id": "b", "text": "`<div to=\"/courses\">Courses</div>`" },
+        { "id": "c", "text": "`<Link to=\"/courses\">Courses</Link>`" },
+        { "id": "d", "text": "`<a src=\"/courses\">Courses</a>`" }
       ],
       "correctAnswerId": "c",
-      "explanation": "Link navigates to an application route without requiring a full document reload during normal internal navigation."
+      "explanation": "`Link` navigates to an application route without requiring a full document reload during normal internal navigation."
     },
     {
       "id": "web-advanced-build",
-      "question": "If package.json defines \"build\": \"vite build\", what does npm run build do?",
+      "question": "If `package.json` defines `\"build\": \"vite build\"`, what does `npm run build` do?",
       "options": [
         { "id": "a", "text": "Start the development server with hot module replacement." },
         { "id": "b", "text": "Automatically push the project to GitHub." },
         { "id": "c", "text": "Run all unit tests automatically." },
-        { "id": "d", "text": "Generate a production build, normally in the dist folder." }
+        { "id": "d", "text": "Generate a production build, normally in the `dist` folder." }
       ],
       "correctAnswerId": "d",
-      "explanation": "vite build prepares production assets. The default output directory is dist. Publishing those files is a separate deployment step."
+      "explanation": "`vite build` prepares production assets. The default output directory is `dist`. Publishing those files is a separate deployment step."
     },
     {
       "id": "web-advanced-base",
-      "question": "An application is hosted at https://example.com/frontend_project/. Which Vite base value matches this deployment path?",
+      "question": "An application is hosted at `https://example.com/frontend_project/`. Which Vite `base` value matches this deployment path?",
       "options": [
-        { "id": "a", "text": "/frontend_project/" },
-        { "id": "b", "text": "/src/" },
-        { "id": "c", "text": "/courses/" },
-        { "id": "d", "text": "/dist/" }
+        { "id": "a", "text": "`/frontend_project/`" },
+        { "id": "b", "text": "`/src/`" },
+        { "id": "c", "text": "`/courses/`" },
+        { "id": "d", "text": "`/dist/`" }
       ],
       "correctAnswerId": "a",
-      "explanation": "The base setting specifies the public base path used for asset URLs. Hosting under /frontend_project/ requires asset paths that match that location."
+      "explanation": "The `base` setting specifies the public base path used for asset URLs. Hosting under `/frontend_project/` requires asset paths that match that location."
     }
   ]
 }
