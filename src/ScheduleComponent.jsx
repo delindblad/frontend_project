@@ -2,10 +2,7 @@
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import {useState} from "react";
-import {faSchoolFlag} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {OverlayTrigger} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+
 
 function ScheduleComponent(props) {
 
