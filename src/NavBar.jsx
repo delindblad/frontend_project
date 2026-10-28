@@ -49,7 +49,7 @@ function NavBar() {
 
             <Nav.Link as={NavLink} to="/mylearning">
               <FontAwesomeIcon icon={faUser} />
-              {localStorage.getItem('loggedIn') === 'true' ? 'Signed in(' + demoUserData.full_name + ')': 'Sign in!'}
+              {localStorage.getItem('loggedIn') === 'true' ? 'My Learning(' + demoUserData.full_name + ')': 'Sign in!'}
             </Nav.Link>
             <Nav.Link as={NavLink} to="/messages">
               <FontAwesomeIcon icon={faComments}/>
