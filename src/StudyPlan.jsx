@@ -1,16 +1,13 @@
 import {Col, Container, InputGroup, Row, Stack} from "react-bootstrap";
-import ScheduleComponent from "./ScheduleComponent.jsx";
 import Form from 'react-bootstrap/Form';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { courseIcons } from './data/courseIcons.js';
-import {faHtml5} from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 import {courses} from "./data/courses.js";
 import {getCourseTitle} from "./js/util.js";
 import {demoUserData} from "./data/user.js";
 
-function StudyPlan(props) {
+function StudyPlan() {
     const enrollment = demoUserData.enrollment;
     return (
         <Container>
