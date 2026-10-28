@@ -50,8 +50,8 @@ function App() {
                 />
                 <Route path="/courses/:courseId" element={localStorage.getItem('loggedIn') === 'true' ? <LessonDetails /> : <Login /> } />
                 <Route
-                    path="/courses/:courseId/modules/:moduleId/lessons/:lessonId"
-                    element={localStorage.getItem('loggedIn') === 'true' ? <LessonDetails /> : <Login /> }
+                    path="/lessons/:courseId/modules/:moduleId/lessons/:lessonId"
+                    element={localStorage.getItem('loggedIn') === 'true' ? <Lessons /> : <Login /> }
                 />
                 <Route
                     path="/schedule"
