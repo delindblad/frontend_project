@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import {useState} from "react";
 import {faSchoolFlag} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {OverlayTrigger} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 function ScheduleComponent(props) {
 
@@ -13,7 +15,7 @@ function ScheduleComponent(props) {
         <Table border-top border-4 border-primary bg-primary-subtle stiped="true" bordered>
             <thead>
             <tr>
-                <th className="text-muted bg-primary-subtle" colSpan={6}><h1><span className="badge bg-primary">My schedule</span></h1>
+                <th className="text-muted bg-primary-subtle" colSpan={6}><h3>My schedule</h3>
                 </th>
             </tr>
             <tr>
@@ -99,6 +101,7 @@ function ScheduleComponent(props) {
                 </td>
                 <td>
                     <SubjectSelection currentCourses={currentCourses} id={"1500Friday"} />
+
                 </td>
 
             </tr>
@@ -115,32 +118,16 @@ function SubjectSelection(props) {
     //console.log(storedValue);
     const [selectedValue, setSelected] = useState("");
 
-
-
-
-    /*if (localStorage.getItem(storedValue) === null) {
-        //Set to empty
-        setSelected("");
-    }
-    else {
-        //Set to retrieved value
-        setSelected(storedValue);
-
-    }*/
-
     const handleChange = (event) => {
         setSelected(event.target.value)
         localStorage.setItem(props.id,event.target.value)
     }
 
-
-
     return (
     <Form.Select id={props.id} size="sm" value={storedValue} onChange={handleChange}>
-
         {
             currentCourses.map(
-                (item, index) => <option key={index} className={item} value={item}>{item}</option>
+                (item, index) => <option key={index} title={index} className={item} value={item}>{item}</option>
             )
         }
     </Form.Select>
@@ -149,139 +136,4 @@ function SubjectSelection(props) {
 
 
 
-/*function ScheduleComponent(props) {
-    const {slot0800, slot1000, slot1300, slot1500} = props.schedule;
-    return (
-        <Table stiped="true" bordered hover variant="dark">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>08:00</td>
-                <td>
-                    <select>
-                        <option value="Ford">Ford</option>
-                        <option value="Volvo" selected>Volvo</option>
-                        <option value="Fiat">Fiat</option>
-                    </select>
-                </td>
-                <td>
-                    <a href={`/courses/${slot0800.topicByDay[1].courseId}`}>
-                        {slot0800.topicByDay[1].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot0800.topicByDay[2].courseId}`}>
-                        {slot0800.topicByDay[2].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot0800.topicByDay[3].courseId}`}>
-                        {slot0800.topicByDay[3].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot0800.topicByDay[4].courseId}`}>
-                        {slot0800.topicByDay[4].title}
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>10:00</td>
-                <td>
-                    <a href={`/courses/${slot1000.topicByDay[0].courseId}`}>
-                        {slot1000.topicByDay[0].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1000.topicByDay[1].courseId}`}>
-                        {slot1000.topicByDay[1].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1000.topicByDay[2].courseId}`}>
-                        {slot1000.topicByDay[2].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1000.topicByDay[3].courseId}`}>
-                        {slot1000.topicByDay[3].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1000.topicByDay[4].courseId}`}>
-                        {slot1000.topicByDay[4].title}
-                    </a>
-                </td>
-
-            </tr>
-            <tr>
-                <td>13:00</td>
-                <td>
-                    <a href={`/courses/${slot1300.topicByDay[0].courseId}`}>
-                        {slot1300.topicByDay[0].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1300.topicByDay[1].courseId}`}>
-                        {slot1300.topicByDay[1].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1300.topicByDay[2].courseId}`}>
-                        {slot1300.topicByDay[2].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1300.topicByDay[3].courseId}`}>
-                        {slot1300.topicByDay[3].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1300.topicByDay[4].courseId}`}>
-                        {slot1300.topicByDay[4].title}
-                    </a>
-                </td>
-
-
-            </tr>
-            <tr>
-                <td>15:00</td>
-                <td>
-                    <a href={`/courses/${slot1500.topicByDay[0].courseId}`}>
-                        {slot1500.topicByDay[0].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1500.topicByDay[1].courseId}`}>
-                        {slot1500.topicByDay[1].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1500.topicByDay[2].courseId}`}>
-                        {slot1500.topicByDay[2].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1500.topicByDay[3].courseId}`}>
-                        {slot1500.topicByDay[3].title}
-                    </a>
-                </td>
-                <td>
-                    <a href={`/courses/${slot1500.topicByDay[4].courseId}`}>
-                        {slot1500.topicByDay[4].title}
-                    </a>
-                </td>
-
-            </tr>
-}*/
 export default ScheduleComponent;
