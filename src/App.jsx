@@ -54,11 +54,12 @@ function App() {
                     element={localStorage.getItem('loggedIn') === 'true' ? <LessonDetails /> : <Login /> }
                 />
                 <Route
-                    path="/schedule" element={localStorage.getItem('loggedIn') === 'true' ? <Schedule currentCourses={currentCourses}  /> : <Login /> }
+                    path="/schedule"
+                    element={localStorage.getItem('loggedIn') === 'true' ? <Schedule currentCourses={currentCourses}  /> : <Login/> }
                 />
                 <Route
                     path="/assessments"
-                    element={<Assessments />}
+                    element={localStorage.getItem('loggedIn') === 'true' ? <Assessments  /> : <Login/> }
                 />
 
                 <Route path="/messages" element={localStorage.getItem('loggedIn') === 'true' ? <Messages /> : <Login /> } />

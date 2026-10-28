@@ -64,10 +64,6 @@ function NavBar() {
               {localStorage.getItem('loggedIn') === 'true' ? 'My Learning(' + demoUserData.full_name + ')': 'Sign in!'}
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to="/messages">
-              <FontAwesomeIcon icon={faComments} />
-              Messages
-            </Nav.Link>
               {localStorage.getItem('loggedIn') === 'true' ? <Nav.Link as={NavLink} to="/logout">
                 <FontAwesomeIcon icon={faRightFromBracket} />
               Sign out
