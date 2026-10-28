@@ -3,11 +3,16 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-  faCircleInfo, faComments,faHouse,faRectangleList,faUser
+  faCircleInfo, faComments, faHouse, faRectangleList, faRightFromBracket, faUser
 } from "@fortawesome/free-solid-svg-icons";
 import {faLeanpub} from "@fortawesome/free-brands-svg-icons";
-
+import {demoUserData} from "./data/user.js";
 function NavBar() {
+  function handleLogout()
+  {
+    localStorage.setItem('loggedin', false.toString());
+  }
+
   return (
      // Show all links on large screens and a collapsible menu on smaller screens.
     <Navbar expand="lg" className="home-navbar py-3">
@@ -41,18 +46,19 @@ function NavBar() {
               Schedule
             </Nav.Link>
 
+
             <Nav.Link as={NavLink} to="/mylearning">
               <FontAwesomeIcon icon={faUser} />
-              My Learning
+              {localStorage.getItem('loggedIn') === 'true' ? 'Signed in(' + demoUserData.full_name + ')': 'Sign in!'}
             </Nav.Link>
             <Nav.Link as={NavLink} to="/messages">
               <FontAwesomeIcon icon={faComments}/>
               Messages
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/help">
-              <FontAwesomeIcon icon={faCircleInfo} />
-              Help
-            </Nav.Link>
+              {localStorage.getItem('loggedIn') === 'true' ? <Nav.Link as={NavLink} to="/logout">
+                <FontAwesomeIcon icon={faRightFromBracket} />
+              Sign out
+            </Nav.Link> : ''}
                                    {/* Preserve the dropdown items from master. */}
  
           </Nav>
