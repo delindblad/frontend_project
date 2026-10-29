@@ -12,13 +12,13 @@
   min-width: 0;
 }
 
-/* Preserve question line breaks and indentation. */
+/* Let Markdown control paragraph and code-block spacing. */
 .quiz-question-text {
-  line-height: 1.7;
-  white-space: pre-wrap;
+  line-height: 1.5;
+  white-space: normal;
 }
 
-/* Remove extra spacing from the last paragraph in each section. */
+/* Remove extra spacing from the last element in each section. */
 .quiz-question-text > :last-child,
 .quiz-option .form-check-label > :last-child,
 .quiz-explanation > :last-child {
@@ -74,25 +74,43 @@
   overflow-wrap: anywhere;
 }
 
-/* Preserve indentation and allow long code lines to scroll. */
+/* Match the Bootstrap code examples on the Lessons page. */
 .quiz-page pre {
-  margin: 1rem 0;
-  padding: 1.1rem 1.25rem;
-  border-radius: 0.75rem;
-  background: #182230;
-  color: #e6edf3;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  overflow-x: auto;
+  display: block;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 0;
+  border-radius: var(--bs-border-radius, 0.375rem);
+  background: var(--bs-tertiary-bg, #f8f9fa);
+  color: var(--bs-body-color, #212529);
+  font-family: var(
+    --bs-font-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace
+  );
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: var(--bs-body-line-height, 1.5);
+  white-space: pre;
+  overflow: auto;
+  text-align: left;
 }
 
+/* Inherit the code block's font, size and spacing. */
 .quiz-page pre code {
   padding: 0;
+  border: 0;
+  border-radius: 0;
   background: transparent;
   color: inherit;
-  white-space: pre;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  white-space: inherit;
+  word-break: normal;
+  overflow-wrap: normal;
 }
-
 
 /* Arrange reset actions side by side, wrapping when needed. */
 .assessment-reset-actions {
