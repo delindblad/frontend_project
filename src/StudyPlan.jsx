@@ -29,7 +29,7 @@ function StudyPlan() {
                                     <Card.Header><h5>{index + 1}. {getCourseTitle(courses, item)} </h5></Card.Header>
                                     <div className={"d-inline m-3"}>
                                         Read lessons, create content, take quiz
-                                        <Button className={"fa-pull-right"} variant="primary" href={"/courses/" + item }>Open activity</Button>
+                                        <Button className={"fa-pull-right"} variant="primary" href={"./courses/" + item }>Open activity</Button>
                                     </div>
                                 </Card>
                             )
