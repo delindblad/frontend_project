@@ -18,14 +18,7 @@ function StudyPlan() {
 
                 </Col>
 
-                <Col>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text id="basic-addon3">
-                            Filter:
-                        </InputGroup.Text>
-                    <Form.Select  value={"filter"}/>
-                    </InputGroup>
-                </Col>
+
             </Row>
             <Row>
                 <Col>

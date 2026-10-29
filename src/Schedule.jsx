@@ -10,14 +10,8 @@ function Schedule(props) {
     return (
         <Container fluid="sm"  defaultActiveKey="One" className="mb-3">
             <Row>
-                <Tabs defaultActiveKey="studyplan" >
-                    <Tab title={"Study plan"} eventKey="studyplan">
                     <StudyPlan />
-                    </Tab>
-                    <Tab title={"Schedule"} eventKey="schedule">
-                        <ScheduleComponent currentCourses={currentCourses}/>
-                    </Tab>
-                </Tabs>
+
             </Row>
         </Container>
 

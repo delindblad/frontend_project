@@ -16,7 +16,7 @@ function NavBar() {
 
   return (
     // Show all links on large screens and a collapsible menu on smaller screens.
-    <Navbar expand="lg" className="home-navbar py-3">
+    <Navbar expand="xl" className="home-navbar py-3">
       <Container>
         {/* Clicking the platform name returns to the Home page. */}
         <Navbar.Brand as={Link} to="/" className="home-navbar-brand">
