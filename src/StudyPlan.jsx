@@ -12,10 +12,9 @@ function StudyPlan() {
         <Container>
 
             <Row>
-                <Col xs={8}>
+
                     <h3 className="">Suggested study plan</h3>
 
-                </Col>
 
 
             </Row>
