@@ -1,5 +1,4 @@
-import {Col, Container, InputGroup, Row, Stack} from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
+import {Col, Container, Row, Stack} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
