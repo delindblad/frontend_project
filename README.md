@@ -1,5 +1,7 @@
 # E-learning plattform
 
+https://delindblad.github.io/frontend_project/
+
 ## Description
 A platform for interactive learning
 
@@ -14,6 +16,8 @@ A platform for interactive learning
   React Bootstrap: https://react-bootstrap.netlify.app/
 
   Font Awesome: https://fontawesome.com/
+
+  Lighthouse: https://developer.chrome.com/docs/lighthouse
 
 ## Setting up locally
 ### Manually using your shell
@@ -45,9 +49,6 @@ A platform for interactive learning
 <img width="2834" height="1304" alt="image" src="https://github.com/user-attachments/assets/42b6af3b-5561-4411-aeb4-65a34f31dbab" />
 <img width="1385" height="1060" alt="image" src="https://github.com/user-attachments/assets/a95b2da9-142f-45c9-aefc-c64471376c33" />
 <img width="1419" height="1040" alt="image" src="https://github.com/user-attachments/assets/f437df8e-ba16-466c-88cd-cda0da291096" />
-
-
-
 
 
 ## Team members
