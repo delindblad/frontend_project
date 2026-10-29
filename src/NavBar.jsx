@@ -1,26 +1,36 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
+import platformLogo from "./assets/platform-logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircleInfo,
-  faClipboardCheck, faComments, faHouse, faRectangleList, faRightFromBracket, faUser,
+  faChalkboardUser,
+  faClipboardCheck,
+  faHouse,
+  faRectangleList,
+  faRightFromBracket,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLeanpub } from "@fortawesome/free-brands-svg-icons";
-import {demoUserData} from "./data/user.js";
-function NavBar() {
-  function handleLogout()
-  {
-    localStorage.setItem('loggedin', false.toString());
-  }
+import { demoUserData } from "./data/user.js";
 
+function NavBar() {
   return (
     // Show all links on large screens and a collapsible menu on smaller screens.
     <Navbar expand="lg" className="home-navbar py-3">
       <Container>
-        {/* Clicking the platform name returns to the Home page. */}
-        <Navbar.Brand as={Link} to="/" className="home-navbar-brand">
-          E-learning platform
+        {/* Clicking the logo or platform name returns to Home. */}
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          className="home-navbar-brand d-flex align-items-center gap-2"
+        >
+          <img
+            src={platformLogo}
+            alt=""
+            className="platform-logo"
+          />
+          <span>E-learning platform</span>
         </Navbar.Brand>
 
         {/* Toggle the mobile navigation menu. */}
@@ -42,8 +52,9 @@ function NavBar() {
               Courses
             </Nav.Link>
 
+            {/* A teacher and board distinguish Lessons from Courses. */}
             <Nav.Link as={NavLink} to="/lessons">
-              <FontAwesomeIcon icon={faLeanpub} />
+              <FontAwesomeIcon icon={faChalkboardUser} />
               Lessons
             </Nav.Link>
 
@@ -51,7 +62,6 @@ function NavBar() {
               <FontAwesomeIcon icon={faRectangleList} />
               Schedule
             </Nav.Link>
-
 
             {/* Open the quiz selector and assessments page. */}
             <Nav.Link as={NavLink} to="/assessments">
@@ -61,15 +71,19 @@ function NavBar() {
 
             <Nav.Link as={NavLink} to="/mylearning">
               <FontAwesomeIcon icon={faUser} />
-              {localStorage.getItem('loggedIn') === 'true' ? 'My Learning(' + demoUserData.full_name + ')': 'Sign in!'}
+              {localStorage.getItem("loggedIn") === "true"
+                ? "My Learning(" + demoUserData.full_name + ")"
+                : "Sign in!"}
             </Nav.Link>
 
-              {localStorage.getItem('loggedIn') === 'true' ? <Nav.Link as={NavLink} to="/logout">
+            {localStorage.getItem("loggedIn") === "true" ? (
+              <Nav.Link as={NavLink} to="/logout">
                 <FontAwesomeIcon icon={faRightFromBracket} />
-              Sign out
-            </Nav.Link> : ''}
-                                   {/* Preserve the dropdown items from master. */}
-
+                Sign out
+              </Nav.Link>
+            ) : (
+              ""
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

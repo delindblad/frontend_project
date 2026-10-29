@@ -21,6 +21,14 @@
     color: #193654;
 }
 
+/* Keep the platform logo compact beside the brand name. */
+.platform-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 /* Rounded navigation links with comfortable spacing. */
 .home-navbar .navbar-nav .nav-link {
     padding: 0.55rem 0.7rem;
