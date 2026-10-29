@@ -29,12 +29,21 @@
     flex-shrink: 0;
 }
 
-/* Rounded navigation links with comfortable spacing. */
+/* Keep navigation icons and their labels together on one line. */
 .home-navbar .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
     padding: 0.55rem 0.7rem;
     border-radius: 0.5rem;
     color: #365777;
     font-weight: 500;
+}
+
+/* Prevent navigation icons from shrinking. */
+.home-navbar .navbar-nav .nav-link svg {
+    flex-shrink: 0;
 }
 
 /* Highlight hovered links and open dropdowns. */
@@ -84,8 +93,8 @@
     color: #193654;
 }
 
-/* Add spacing above the expanded mobile menu. */
-@media (max-width: 991.98px) {
+/* Match the Navbar's xl breakpoint for the collapsible menu. */
+@media (max-width: 1199.98px) {
     .home-navbar .navbar-collapse {
         padding-top: 1rem;
     }

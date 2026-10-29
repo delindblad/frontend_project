@@ -16,7 +16,7 @@ import { demoUserData } from "./data/user.js";
 
 function NavBar() {
   return (
-    // Show all links on large screens and a collapsible menu on smaller screens.
+    // Show a collapsible menu on screens narrower than 1200px.
     <Navbar expand="xl" className="home-navbar py-3">
       <Container>
         {/* Clicking the logo or platform name returns to Home. */}
@@ -33,53 +33,55 @@ function NavBar() {
           <span>E-learning platform</span>
         </Navbar.Brand>
 
-        {/* Toggle the mobile navigation menu. */}
+        {/* Toggle the navigation menu on smaller screens. */}
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           aria-label="Toggle navigation"
         />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto gap-lg-1">
+          <Nav className="ms-auto gap-xl-1">
             {/* Highlight Home only when the URL matches exactly. */}
             <Nav.Link as={NavLink} to="/" end>
               <FontAwesomeIcon icon={faHouse} />
-              Home
+              <span>Home</span>
             </Nav.Link>
 
             <Nav.Link as={NavLink} to="/courses">
               <FontAwesomeIcon icon={faLeanpub} />
-              Courses
+              <span>Courses</span>
             </Nav.Link>
 
             {/* A teacher and board distinguish Lessons from Courses. */}
             <Nav.Link as={NavLink} to="/lessons">
               <FontAwesomeIcon icon={faChalkboardUser} />
-              Lessons
+              <span>Lessons</span>
             </Nav.Link>
 
             <Nav.Link as={NavLink} to="/schedule">
               <FontAwesomeIcon icon={faRectangleList} />
-              Schedule
+              <span>Schedule</span>
             </Nav.Link>
 
             {/* Open the quiz selector and assessments page. */}
             <Nav.Link as={NavLink} to="/assessments">
               <FontAwesomeIcon icon={faClipboardCheck} />
-              Assessments
+              <span>Assessments</span>
             </Nav.Link>
 
             <Nav.Link as={NavLink} to="/mylearning">
               <FontAwesomeIcon icon={faUser} />
-              {localStorage.getItem("loggedIn") === "true"
-                ? "My Learning(" + demoUserData.full_name + ")"
-                : "Sign in!"}
+              <span>
+                {localStorage.getItem("loggedIn") === "true"
+                  ? "My Learning(" + demoUserData.full_name + ")"
+                  : "Sign in!"}
+              </span>
             </Nav.Link>
 
             {localStorage.getItem("loggedIn") === "true" ? (
               <Nav.Link as={NavLink} to="/logout">
                 <FontAwesomeIcon icon={faRightFromBracket} />
-                Sign out
+                <span>Sign out</span>
               </Nav.Link>
             ) : (
               ""
