@@ -7,3 +7,5 @@ export const getCourseTitle = ( courses, courseId) =>
         }
     }
 }
+
+

@@ -1,5 +1,4 @@
-import {Col, Container, InputGroup, Row, Stack} from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
+import {Col, Container, Row, Stack} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -13,19 +12,11 @@ function StudyPlan() {
         <Container>
 
             <Row>
-                <Col xs={8}>
+
                     <h3 className="">Suggested study plan</h3>
 
-                </Col>
 
-                <Col>
-                    <InputGroup className="mb-3">
-                        <InputGroup.Text id="basic-addon3">
-                            Filter:
-                        </InputGroup.Text>
-                    <Form.Select  value={"filter"}/>
-                    </InputGroup>
-                </Col>
+
             </Row>
             <Row>
                 <Col>
@@ -37,7 +28,7 @@ function StudyPlan() {
                                     <Card.Header><h5>{index + 1}. {getCourseTitle(courses, item)} </h5></Card.Header>
                                     <div className={"d-inline m-3"}>
                                         Read lessons, create content, take quiz
-                                        <Button className={"fa-pull-right"} variant="primary">Open activity</Button>
+                                        <Button className={"fa-pull-right"} variant="primary" href={"./courses/" + item }>Open activity</Button>
                                     </div>
                                 </Card>
                             )
