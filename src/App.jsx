@@ -22,8 +22,12 @@ const LessonDetails = lazy(() => import("./LessonDetails.jsx"));
 const Assessments = lazy(() => import("./Assessments.jsx"));
 
 function App() {
+    let darkMode = localStorage.getItem('darkMode') === 'true';
+    const htmlElement = document.querySelector('html');
+    htmlElement.setAttribute('data-bs-theme',
+        darkMode ? 'dark' : 'light');
     return (
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <BrowserRouter basename={import.meta.env.BASE_URL} >
 
          <NavBar />
             <Suspense
@@ -33,7 +37,7 @@ function App() {
                     </div>
                 }
             >
-            <Routes>
+            <Routes >
 
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

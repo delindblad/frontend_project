@@ -6,15 +6,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboardUser,
   faClipboardCheck,
-  faHouse,
+  faHouse, faMoon,
   faRectangleList,
-  faRightFromBracket,
+  faRightFromBracket, faSun,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLeanpub } from "@fortawesome/free-brands-svg-icons";
 import { demoUserData } from "./data/user.js";
 
+
 function NavBar() {
+  let darkMode = localStorage.getItem('darkMode') === 'true';
+
+  function toggleDark() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      localStorage.setItem('darkMode', 'false');
+      window.reload();
+    }
+    else {
+      localStorage.setItem('darkMode', 'true');
+      window.reload();
+
+    }
+  }
+
   return (
     // Show a collapsible menu on screens narrower than 1200px.
     <Navbar expand="xl" className="home-navbar py-3">
@@ -77,15 +92,19 @@ function NavBar() {
                   : "Sign in!"}
               </span>
             </Nav.Link>
-
-            {localStorage.getItem("loggedIn") === "true" ? (
+              {localStorage.getItem("loggedIn") === "true" ? (
               <Nav.Link as={NavLink} to="/logout">
                 <FontAwesomeIcon icon={faRightFromBracket} />
                 <span>Sign out</span>
               </Nav.Link>
+
             ) : (
               ""
             )}
+            <Nav.Link as={NavLink} to="" onClick={toggleDark}>
+              {darkMode ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
+                  <span></span>
+                </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
