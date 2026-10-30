@@ -9,6 +9,7 @@ import LoggedOut from "./LoggedOut.jsx";
 import { currentCourses } from "./data/schedule.js";
 
 
+
 // Load these pages only when they are first opened.
 // Keep lazy declarations outside App to preserve component identity.
 const MyLearning = lazy(() => import("./MyLearning.jsx"));
@@ -23,6 +24,7 @@ const Assessments = lazy(() => import("./Assessments.jsx"));
 function App() {
     return (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
+
          <NavBar />
             <Suspense
                 fallback={
@@ -67,7 +69,9 @@ function App() {
             </Routes>
             </Suspense>
             <Footer />
+
         </BrowserRouter>
+
     );
 }
 
